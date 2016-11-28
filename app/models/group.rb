@@ -14,4 +14,10 @@ class Group < ApplicationRecord
   validates :description, presence: true
   validates :genre, inclusion: { in: %w(rock jazz punk acoustic indie hip-hop classical funk reggae blues metal other) }
   validates :level, inclusion: { in: %w(beginner intermediate advanced) }
+
+
+  def studio
+    self.slot.studio
+  end
+
 end
