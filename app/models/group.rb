@@ -8,6 +8,8 @@ class Group < ApplicationRecord
 
   has_many :messages
 
+  belongs_to :admin, class_name: "User"
+
   validates :name, presence: true
   validates :description, presence: true
   validates :genre, inclusion: { in: %w(rock jazz punk acoustic indie hip-hop classical funk reggae blues metal other) }
