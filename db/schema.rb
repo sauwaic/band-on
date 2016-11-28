@@ -10,10 +10,94 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128133900) do
+ActiveRecord::Schema.define(version: 20161128154051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "equipment", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "group_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "instrument_id"
+    t.index ["group_id"], name: "index_group_users_on_group_id", using: :btree
+    t.index ["instrument_id"], name: "index_group_users_on_instrument_id", using: :btree
+    t.index ["user_id"], name: "index_group_users_on_user_id", using: :btree
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "number_of_players"
+    t.string   "description"
+    t.string   "genre"
+    t.integer  "price_per_user"
+    t.integer  "slot_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "level"
+    t.index ["slot_id"], name: "index_groups_on_slot_id", using: :btree
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.string   "content"
+    t.datetime "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_messages_on_group_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "studio_id"
+    t.boolean  "taken"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["studio_id"], name: "index_slots_on_studio_id", using: :btree
+  end
+
+  create_table "studio_equipments", force: :cascade do |t|
+    t.integer  "studio_id"
+    t.integer  "equipment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["equipment_id"], name: "index_studio_equipments_on_equipment_id", using: :btree
+    t.index ["studio_id"], name: "index_studio_equipments_on_studio_id", using: :btree
+  end
+
+  create_table "studios", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_instruments", force: :cascade do |t|
+    t.integer  "instrument_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["instrument_id"], name: "index_user_instruments_on_instrument_id", using: :btree
+    t.index ["user_id"], name: "index_user_instruments_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +112,25 @@ ActiveRecord::Schema.define(version: 20161128133900) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "gender"
+    t.string   "name"
+    t.integer  "age"
+    t.string   "description"
+    t.string   "experience"
+    t.string   "genre"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "instruments"
+  add_foreign_key "group_users", "users"
+  add_foreign_key "groups", "slots"
+  add_foreign_key "messages", "groups"
+  add_foreign_key "messages", "users"
+  add_foreign_key "slots", "studios"
+  add_foreign_key "studio_equipments", "equipment"
+  add_foreign_key "studio_equipments", "studios"
+  add_foreign_key "user_instruments", "instruments"
+  add_foreign_key "user_instruments", "users"
 end
