@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128154051) do
+ActiveRecord::Schema.define(version: 20161128181212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20161128154051) do
     t.string   "description"
     t.string   "genre"
     t.integer  "price_per_user"
-    t.integer  "slot_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "level"
-    t.index ["slot_id"], name: "index_groups_on_slot_id", using: :btree
+    t.integer  "admin_id"
+    t.index ["admin_id"], name: "index_groups_on_admin_id", using: :btree
   end
 
   create_table "instruments", force: :cascade do |t|
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20161128154051) do
     t.boolean  "taken"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "group_id"
+    t.index ["group_id"], name: "index_slots_on_group_id", using: :btree
     t.index ["studio_id"], name: "index_slots_on_studio_id", using: :btree
   end
 
@@ -125,9 +127,9 @@ ActiveRecord::Schema.define(version: 20161128154051) do
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "instruments"
   add_foreign_key "group_users", "users"
-  add_foreign_key "groups", "slots"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
+  add_foreign_key "slots", "groups"
   add_foreign_key "slots", "studios"
   add_foreign_key "studio_equipments", "equipment"
   add_foreign_key "studio_equipments", "studios"
