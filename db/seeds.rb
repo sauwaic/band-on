@@ -39,7 +39,7 @@ end
    description: Faker::ChuckNorris.fact,
    experience: ["beginner","intermediate","advanced"].sample,
    genre: ["rock", "jazz", "punk", "acoustic", "indie", "hip-hop", "classical", "funk", "reggae", "blues", "metal", "other"].sample
- )
+   )
  user.save!
  puts "user: " + user.name
 end
@@ -52,9 +52,7 @@ end
    taken: false
    )
  slot.studio = Studio.first
- slot.save!
- puts "slot: " + slot.id.to_s
-   group = Group.new(
+ group = Group.new(
    name: Faker::Name.title,
    number_of_players: (2..6).to_a.sample,
    description: Faker::Hipster.sentences,
@@ -62,9 +60,10 @@ end
    level: ["beginner","intermediate","advanced"].sample
    )
  slot.taken = true
- slot.save!
  group.admin = User.all.sample
  group.slot = slot
  group.save!
+ slot.save!
+puts "slot: " + slot.id.to_s
  puts "group: " + group.name
 end
