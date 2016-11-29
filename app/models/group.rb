@@ -1,6 +1,8 @@
 class Group < ApplicationRecord
   belongs_to :slot
 
+  has_attachment :photo
+
   has_many :group_users, dependent: :destroy
   has_many :users, through: :group_users
 
