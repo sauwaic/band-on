@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-  has_one :slot
+  has_one :slot, dependent: :nullify
   has_one :studio, through: :slot
 
   has_many :group_users, dependent: :destroy
