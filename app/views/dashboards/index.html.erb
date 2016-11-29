@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12">
+      <h1>Group details</h1>
+      <h3> <%= @group.name %> </h3>
+      <p> <%= "Group admin: #{@group.admin.name}" %> </p>
+      <p> <%= "Group description: #{@group.description}" %> </p>
+      <p> Group members:
+        <% @group.users.each do |member| %>
+        <%= "#{member.name} |" %>
+        <% end %>
+      </p>
+    </div>
+
+    <div class="col-xs-12">
+      <h1>Group message board</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis quam officia deleniti impedit iure adipisci numquam porro quis sapiente aspernatur saepe nemo, quibusdam, ex, nam! Asperiores pariatur aliquid illum.</p>
+    </div>
+
+    <div class="col-xs-12">
+      <h1>Group playlist</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis quam officia deleniti impedit iure adipisci numquam porro quis sapiente aspernatur saepe nemo, quibusdam, ex, nam! Asperiores pariatur aliquid illum.</p>
+    </div>
+
+  </div>
+</div>

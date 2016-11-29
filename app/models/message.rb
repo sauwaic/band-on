@@ -4,4 +4,6 @@ class Message < ApplicationRecord
 
   validates :content, presence: true
   validates :time, presence: true
+  validates :user_id, presence: true
+  validates :group_id, presence: true
 end
