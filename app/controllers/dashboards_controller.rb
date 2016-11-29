@@ -3,6 +3,7 @@ class DashboardsController < ApplicationController
   before_action :set_group, only: [ :index ]
 
   def index
+    @message = Message.new
   end
 
   private

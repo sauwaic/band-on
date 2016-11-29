@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   resources :groups do
     resources :dashboards, path: 'dashboard', only: [:index]
     resources :group_users, only: [:create]
+    resources :messages, only: [:create]
   end
+
+  get '/my_groups', to: 'profiles#my_groups'
 end
