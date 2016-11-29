@@ -69,3 +69,4 @@ end
  puts "slot: " + slot.id.to_s
  puts "group: " + group.name
 end
+
