@@ -4,7 +4,7 @@ class Studio < ApplicationRecord
 
   has_attachment :photo
 
-  has_many :studio_equipments
+  has_many :studio_equipments, dependent: :destroy
   has_many :equipments, through: :studio_equipments
 
   validates :name, presence: true

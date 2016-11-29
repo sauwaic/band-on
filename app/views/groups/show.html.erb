@@ -1,3 +1,29 @@
-<% if @product.photo? %>
-  <%= cl_image_tag @product.photo.path, width: 200, height: 300, crop: :fill %>
-<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+
+      <h3> <%= @group.name %> </h3>
+      <% if @group.photo? %>
+        <%= cl_image_tag @group.photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
+      <p> <%= "Group admin: #{@group.admin.name}" %> </p>
+      <p> <%= "Group description: #{@group.description}" %> </p>
+      <p> Group members:
+        <% @group.users.each do |member| %>
+        <%= "#{member.name} |" %>
+        <% end %>
+      </p>
+
+    </div>
+
+    <div class="col-xs-4">
+    <h1>Join Group</h1>
+      <%= simple_form_for [ @group, @group_user ] do |f| %>
+      <%= f.input :instrument_id, collection: Instrument.all, prompt: "Select your instrument" %>
+      <%= f.submit "Join group", class: "btn btn-primary btn-submit" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
