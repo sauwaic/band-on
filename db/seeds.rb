@@ -9,9 +9,9 @@ require 'faker'
 
 User.destroy_all
 Group.destroy_all
+Slot.destroy_all
 Instrument.destroy_all
 Studio.destroy_all
-Slot.destroy_all
 
 %w(guitar bass-guitar piano drum-kit voice trumpet saxophone flute violin other).each do |instrument|
  i = Instrument.create(name: instrument)
@@ -55,7 +55,7 @@ end
  group = Group.new(
    name: Faker::Name.title,
    number_of_players: (2..6).to_a.sample,
-   description: Faker::Hipster.sentences,
+   description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ut culpa quibusdam corporis.",
    genre: ["rock", "jazz", "punk", "acoustic", "indie", "hip-hop", "classical", "funk", "reggae", "blues", "metal", "other"].sample,
    level: ["beginner","intermediate","advanced"].sample
    )
@@ -64,6 +64,8 @@ end
  group.slot = slot
  group.save!
  slot.save!
-puts "slot: " + slot.id.to_s
+ GroupUser.create(user: User.all.sample, group: group, instrument: Instrument.all.sample)
+ GroupUser.create(user: User.all.sample, group: group, instrument: Instrument.all.sample)
+ puts "slot: " + slot.id.to_s
  puts "group: " + group.name
 end
