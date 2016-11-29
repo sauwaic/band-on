@@ -1,0 +1,7 @@
+
+var new_message = $("<%= j render 'messages/show', message: @message %>").hide();
+$('#messages').append(new_message);
+$('#first_message').hide();
+new_message.slideDown();
+$('#message_content').val('');
+

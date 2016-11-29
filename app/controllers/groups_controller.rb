@@ -13,11 +13,16 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @slot_id = params[:slot_id]
   end
 
   def create
     group = Group.new(group_params)
     group.admin = current_user
+    slot = Slot.find(params[:group][:slot_id])
+    slot.group = group
+    slot.taken = true
+    slot.save
     group.save
     redirect_to group_path(group)
   end

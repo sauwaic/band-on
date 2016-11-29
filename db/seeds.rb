@@ -12,6 +12,7 @@ Group.destroy_all
 Slot.destroy_all
 Instrument.destroy_all
 Studio.destroy_all
+Message.destroy_all
 
 %w(guitar bass-guitar piano drum-kit voice trumpet saxophone flute violin other).each do |instrument|
  i = Instrument.create(name: instrument)
@@ -51,7 +52,7 @@ end
    end_time: Faker::Time.forward(23, :afternoon),
    taken: false
    )
- slot.studio = Studio.first
+ slot.studio = Studio.all.sample
  group = Group.new(
    name: Faker::Name.title,
    number_of_players: (2..6).to_a.sample,
@@ -69,4 +70,17 @@ end
  puts "slot: " + slot.id.to_s
  puts "group: " + group.name
 end
+
+5.times do
+ slot = Slot.new(
+   date: Faker::Date.forward(23),
+   start_time: Faker::Time.forward(23, :morning),
+   end_time: Faker::Time.forward(23, :afternoon),
+   taken: false
+   )
+ slot.studio = Studio.all.sample
+ slot.save!
+ puts "empty slot: " + slot.id.to_s
+end
+
 
