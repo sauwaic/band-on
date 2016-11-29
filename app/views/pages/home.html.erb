@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'images/homepage.jpeg' %>');">
+  <div class="banner-content">
+    <h1>See our list of band in formation</h1>
+    <p>"You want to play music, don't wait anymore, join one of our band in formation"</p>
+    <%= link_to "See the groups", groups_path, {class: "btn btn-primary"} %>
+    </a>
+  </div>
+</div>
