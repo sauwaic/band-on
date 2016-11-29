@@ -7,4 +7,9 @@ class Slot < ApplicationRecord
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :taken, inclusion: { in: [true, false] }
+
+  def taken?
+    self.taken
+  end
+
 end

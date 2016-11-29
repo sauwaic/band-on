@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  resources :studios, only: [:index, :show]
+
   get '/my_groups', to: 'profiles#my_groups'
 end

@@ -23,7 +23,7 @@
       <h1>Group message board</h1>
       <div id="messages">
         <% if @group.messages.blank? %>
-          Be the first to leave a message
+          <p id="first_message"> Be the first to leave a message </p>
         <% else %>
           <% @group.messages.each do |message| %>
             <%= render 'messages/show', message: message %>
