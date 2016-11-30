@@ -4,4 +4,16 @@ class StudioPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    true
+  end
+
+  def studios?
+    true
+  end
+
+  def slots?
+    true
+  end
 end
