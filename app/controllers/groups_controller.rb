@@ -1,19 +1,21 @@
 class GroupsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   before_action :set_group, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @groups = Group.all
+    @groups = policy_scope(Group).order(created_at: :desc)
   end
 
   def show
-    @group = Group.find(params[:id])
     @group_user = GroupUser.new
   end
 
   def new
     @group = Group.new
     @slot_id = params[:slot_id]
+    authorize @group
   end
 
   def create
@@ -23,12 +25,12 @@ class GroupsController < ApplicationController
     slot.group = group
     slot.taken = true
     slot.save
+    authorize group
     group.save
     redirect_to group_path(group)
   end
 
   def edit
-
   end
 
   def update
@@ -38,6 +40,8 @@ class GroupsController < ApplicationController
 
 
   def destroy
+    @group.slot.taken = false
+    @group.slot.save
     @group.destroy
     redirect_to groups_path
   end
@@ -46,6 +50,7 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+    authorize @group
   end
 
   def group_params

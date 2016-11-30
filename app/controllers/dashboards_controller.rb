@@ -1,9 +1,10 @@
 class DashboardsController < ApplicationController
 
-  before_action :set_group, only: [ :index ]
+  before_action :set_group, only: [ :display ]
 
-  def index
+  def display
     @message = Message.new
+    authorize @group
   end
 
   private
