@@ -9,12 +9,12 @@ class MessagesController < ApplicationController
     @message.time = Time.now
     if @message.save
       respond_to do |format|
-        format.html { redirect_to group_dashboards_path(@group) }
+        format.html { redirect_to group_dashboard_path(@group) }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
     else
       respond_to do |format|
-        format.html { render 'dashboards/index' }
+        format.html { render 'dashboards/display' }
         format.js  # <-- idem
       end
     end

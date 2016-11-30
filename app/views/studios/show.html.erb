@@ -2,12 +2,14 @@
   <div class="row">
     <div class="col-xs-6">
 
-        <h1>Step 2: Select slot</h1>
+      <h1>Step 2: Select slot</h1>
 
-
+      <% if @available_slots.blank? %>
+      <h4>Sorry no spots available</h4>
+      <% else %>
       <% @available_slots.each do |slot| %>
-      <p> <%= link_to "#{slot.date}", new_group_path(slot_id: slot.id) %> </p>
-
+      <p> <%= link_to "#{slot.date.strftime("%A, %d %B %Y")}: #{slot.start_time.strftime("%l:%M %p")} - #{slot.end_time.strftime("%l:%M %p")}", new_group_path(slot_id: slot.id) %> </p>
+      <% end %>
       <% end %>
 
     </div>

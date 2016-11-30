@@ -25,6 +25,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+gem "pundit"
 gem "gmaps4rails"
 
 source 'https://rails-assets.org' do
