@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :studios, only: [:index, :show]
+  resources :studios, only: [:index, :show, :new, :create]
+
+  get 'appointment/studios', to: 'appointments#studios'
+  get 'appointment/studios/:id', to: 'appointments#slots', as: 'appointment_studio'
 
   get '/my_groups', to: 'profiles#my_groups'
 end
