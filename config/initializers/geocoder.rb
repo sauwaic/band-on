@@ -1,5 +1,4 @@
 Geocoder.configure(
-  # [...]
   :units => :km,
-  # [...]
+
 )
