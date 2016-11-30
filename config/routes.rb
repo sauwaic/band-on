@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :groups
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
@@ -15,3 +16,4 @@ Rails.application.routes.draw do
 
   get '/my_groups', to: 'profiles#my_groups'
 end
+

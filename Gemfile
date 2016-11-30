@@ -10,6 +10,7 @@ gem 'devise'
 gem 'redis'
 gem 'faker'
 gem 'geocoder'
+gem 'omniauth-facebook'
 
 gem "cloudinary", "1.1.0"
 gem "attachinary", github: "assembler/attachinary"
