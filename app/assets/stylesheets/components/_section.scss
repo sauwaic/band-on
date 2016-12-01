@@ -1,0 +1,58 @@
+/*  SECTIONS  */
+.section {
+  clear: both;
+  height: 175px;
+  margin: 0px;
+  padding: 0px 20px 0px 70px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+/*  COLUMN SETUP  */
+.col {
+  display: block;
+  float: left;
+  margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF FIVE  */
+.span_5_of_5 {
+  width: 10%;
+}
+.span_4_of_5 {
+  width: 15%;
+}
+.span_3_of_5 {
+  width: 20%;
+}
+.span_2_of_5 {
+  width: 20%;
+}
+.span_1_of_5 {
+  width:  25%;
+}
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+  .col {  margin: 1% 0 1% 0%; }
+  .span_1_of_5, .span_2_of_5, .span_3_of_5, .span_4_of_5, .span_5_of_5 { width: 100%; }
+}
+
+.section-city {
+  background-color: #000000;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.center-block {
+  padding-bottom: 20px;
+}
