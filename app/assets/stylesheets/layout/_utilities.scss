@@ -27,4 +27,6 @@
 .bg-guitar {
   background-image: image-url("homepage.jpeg");
   background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
 }

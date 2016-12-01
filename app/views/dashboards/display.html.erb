@@ -1,43 +1,95 @@
-<div class="container">
-  <div class="row">
-
-    <div class="col-xs-6">
-      <h1>Group details</h1>
-      <h3> <%= @group.name %> </h3>
-      <% if @group.photo? %>
-        <%= cl_image_tag @group.photo.path, width: 200, height: 300, crop: :fill %>
-      <% end %>
-      <p> <%= "Group admin: #{@group.admin.name}" %> </p>
-      <p> <%= "Group description: #{@group.description}" %> </p>
-      <p> Group members:
-        <% @group.users.each do |member| %>
-        <%= "#{member.name} |" %>
-        <% end %>
-      </p>
-    </div>
-
-    <div class="col-xs-6">
-
+<div class="bg-micro">
+  <div class="container">
     <div class="row">
       <div class="col-xs-12">
-      <h1>Group message board</h1>
-      <div id="messages">
-        <% if @group.messages.blank? %>
-          <p id="first_message"> Be the first to leave a message </p>
-        <% else %>
-          <% @group.messages.each do |message| %>
-            <%= render 'messages/show', message: message %>
+        <div class="dashboard-box" id="title-box">
+          <% if @group.photo? %>
+          <%= cl_image_tag @group.photo.path, id: 'group-image'%>
           <% end %>
-        <% end %>
+          <div id='group-content'>
+            <h1><%= @group.name %> </h1>
+            <p> <%= "#{@group.description}" %> </p>
+          </div>
+          <div id='admin-controls'>
+            <% if policy(@group).update? %>
+            <%= link_to edit_group_path(@group) do %>
+            <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to group_path(@group), method: :delete do %>
+            <i class="fa fa-trash"></i>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <%= render 'messages/form', group: @group, message: @message %>
-    </div>
-
-    <div class="col-xs-12">
-      <h1>Group playlist</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis quam officia deleniti impedit iure adipisci numquam porro quis sapiente aspernatur saepe nemo, quibusdam, ex, nam! Asperiores pariatur aliquid illum.</p>
-    </div>
-</div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="dashboard-box">
+
+          <div class="box-title">
+            The band
+            <hr>
+          </div>
+
+          <div class="member-card">
+            <%= image_tag @group_admin.facebook_picture_url, class: "avatar-large" %>
+            <div class="member-card-content">
+              <div id="admin-tag"> admin </div>
+              <h4> <%= "#{@group_admin.name || @group_admin.first_name}" %> </h4>
+              <p> On the <%= GroupUser.where(user: @group_admin).where(group: @group)[0].instrument.name %></p>
+            </div>
+          </div>
+
+          <% @group_members.each do |member| %>
+          <div class="member-card">
+            <%= image_tag member.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
+            <div class="member-card-content">
+              <h4> <%= "#{member.name || member.first_name}" %> </h4>
+              <p> On the <%= GroupUser.where(user: member).where(group: @group)[0].instrument.name %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="dashboard-box">
+              <div class="box-title">
+                Message board
+                <hr>
+              </div>
+              <div id="messages">
+                <% if @group.messages.blank? %>
+                <p id="first_message"> Be the first to leave a message </p>
+                <% else %>
+                <% @group.messages.each do |message| %>
+                <%= render 'messages/show', message: message %>
+                <% end %>
+                <% end %>
+              </div>
+              <%= render 'messages/form', group: @group, message: @message %>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="dashboard-box">
+             <div class="box-title">
+              Jam playlist
+              <hr>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis quam officia deleniti impedit iure adipisci numquam porro quis sapiente aspernatur saepe nemo, quibusdam, ex, nam! Asperiores pariatur aliquid illum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>

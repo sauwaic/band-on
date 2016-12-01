@@ -1,11 +1,18 @@
 <%= simple_form_for(@group) do |f| %>
-    <%= f.hidden_field :slot_id, :value => @slot_id %>
-    <%= f.input :name, placeholder: "Pink Floyd" %>
-    <%= f.input :number_of_players, collection: ["2", "3", "4", "5", "more"], :prompt => "Select a number of players"  %>
-    <%= f.input :description, placeholder: "A cool band" %>
-    <%= f.input :genre, collection: ["rock", "jazz", "punk", "acoustic", "indie", "hip-hop", "classical", "funk", "reggae", "blues", "metal", "other"], :prompt => "Select a Genre" %>
-    <%= f.input :level, collection: ["beginner", "intermediate", "advanced"], :prompt => "Select the level of the Group" %>
-    <%= f.input :photo, as: :attachinary %>
-    <%= f.button :submit, class: "btn btn-primary"  %>
+<%= f.hidden_field :slot_id, :value => @slot_id %>
+<%= f.input :name, placeholder: "Pink Floyd" %>
+<%= f.input :number_of_players, collection: ["2", "3", "4", "5", "more"], :prompt => "Select a number of players"  %>
+<%= f.input :description, placeholder: "A cool band" %>
+<%= f.input :genre, collection: ["rock", "jazz", "punk", "acoustic", "indie", "hip-hop", "classical", "funk", "reggae", "blues", "metal", "other"], :prompt => "Select a Genre" %>
+<%= f.input :level, collection: ["beginner", "intermediate", "advanced"], :prompt => "Select the level of the Group" %>
+
+<% if params[:action] == "new" %>
+<%= simple_fields_for @group_user do |o| %>
+<%= o.input :instrument_id, collection: Instrument.all, label: "Which instrument would you like to play?" %>
+<% end %>
+<% end %>
+
+<%= f.input :photo, as: :attachinary %>
+<%= f.button :submit, class: "btn btn-primary"  %>
 <% end %>
 
