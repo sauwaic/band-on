@@ -1,4 +1,5 @@
 <%= simple_form_for(@group) do |f| %>
+    <%= f.hidden_field :slot_id, :value => @slot_id %>
     <%= f.input :name, placeholder: "Pink Floyd" %>
     <%= f.input :number_of_players, collection: ["2", "3", "4", "5", "more"], :prompt => "Select a number of players"  %>
     <%= f.input :description, placeholder: "A cool band" %>

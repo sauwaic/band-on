@@ -9,6 +9,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'faker'
+gem 'geocoder'
+gem 'omniauth-facebook'
 
 gem "cloudinary", "1.1.0"
 gem "attachinary", github: "assembler/attachinary"
@@ -22,8 +24,15 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+gem 'rails-assets-bootstrap-tokenfield', source: 'https://rails-assets.org'
 
-gem 'faker'
+
+gem "pundit"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 group :development, :test do
   gem 'binding_of_caller'

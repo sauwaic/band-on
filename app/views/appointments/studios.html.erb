@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+
+      <h1>Step 1: Select studio</h1>
+
+      <% @studios.each do |studio| %>
+      <%= link_to "#{studio.name}", appointment_studio_path(studio) %>
+      <p> Address: <%= studio.address%> </p>
+      <p> Price: $<%= studio.price%>/hr </p>
+      <% end %>
+
+    </div>
+    <div class = "col-xs-6" style = "background-color: #dedef8;
+    box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+
+    <div id="map" style="width: 100%; height: 100vh; position: static"></div>
+
+    <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+    $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    var styles = <%= render 'mapstyle'%>;
+    handler.buildMap({
+    provider: {
+    styles: styles
+  },
+  internal: { id: 'map' } }, function() {
+  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  if (markers.length == 0) {
+  handler.getMap().setZoom(2);
+} else if (markers.length == 1) {
+handler.getMap().setZoom(14);
+}
+});
+});
+<% end %>
+<% end %>
+</div>
+</div>
+</div>
