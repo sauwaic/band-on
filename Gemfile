@@ -27,6 +27,7 @@ gem 'autoprefixer-rails'
 gem 'rails-assets-bootstrap-tokenfield', source: 'https://rails-assets.org'
 
 
+gem "pundit"
 gem "gmaps4rails"
 
 source 'https://rails-assets.org' do

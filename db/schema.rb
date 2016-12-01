@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130133436) do
+ActiveRecord::Schema.define(version: 20161201124949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(version: 20161130133436) do
     t.time     "start_time"
     t.time     "end_time"
     t.integer  "studio_id"
-    t.boolean  "taken"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "taken",      default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "group_id"
     t.index ["group_id"], name: "index_slots_on_group_id", using: :btree
     t.index ["studio_id"], name: "index_slots_on_studio_id", using: :btree

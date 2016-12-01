@@ -1,0 +1,8 @@
+<%= simple_form_for(@studio) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address  %>
+    <%= f.input :price, label: "Price per hour ($)" %>
+    <%= f.input :photo, as: :attachinary %>
+    <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>
+

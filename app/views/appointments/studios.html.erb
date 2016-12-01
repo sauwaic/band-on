@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-  <div class="col-xs-6">
+    <div class="col-xs-6">
 
-      <h1>List of studios</h1>
+      <h1>Step 1: Select studio</h1>
 
       <% @studios.each do |studio| %>
-      <%= link_to "#{studio.name}", studio_path(studio) %>
+      <%= link_to "#{studio.name}", appointment_studio_path(studio) %>
       <p> Address: <%= studio.address%> </p>
       <p> Price: $<%= studio.price%>/hr </p>
       <% end %>
