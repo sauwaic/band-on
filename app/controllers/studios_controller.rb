@@ -17,7 +17,12 @@ class StudiosController < ApplicationController
     @studio = Studio.find(params[:id])
     authorize @studio
     @available_slots = @studio.slots.where(taken: false).order(date: :asc)
+
     @studio_coordinates = { lat: @studio.latitude, lng: @studio.longitude }
+    @hash = Gmaps4rails.build_markers(@studio) do |studio, marker|
+      marker.lat studio.latitude
+      marker.lng studio.longitude
+    end
   end
 
   def new
