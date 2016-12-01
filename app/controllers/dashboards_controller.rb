@@ -5,6 +5,8 @@ class DashboardsController < ApplicationController
   def display
     @message = Message.new
     authorize @group
+    @group_admin = @group.admin
+    @group_members = @group.users.reject {|user| user == @group.admin}
   end
 
   private

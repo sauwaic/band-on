@@ -1,1 +1,1 @@
-<p> <%= "#{message.content}" %> <em> <%= "- posted by #{message.user.name}, #{message.minutes_ago} mins ago" %> </em> <p>
+<p> <%= "#{message.content}" %> <em> <%= "- posted by #{message.user.name || message.user.first_name}, #{message.minutes_ago} mins ago" %> </em> <p>
