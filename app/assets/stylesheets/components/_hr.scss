@@ -1,0 +1,15 @@
+/* Gradient transparent - color - transparent */
+
+hr.style-one {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(100, 100, 100, 0), rgba(100, 100, 100, 0.75), rgba(100, 100, 100, 0));
+  margin-bottom: 35px;
+}
+
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(100, 100, 100, 0), rgba(100, 100, 100, 0.75), rgba(100, 100, 100, 0));
+}
+
