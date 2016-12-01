@@ -1,0 +1,7 @@
+<%= simple_form_for([@studio, @slot]) do |f| %>
+    <%= f.input :date %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>
+

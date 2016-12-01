@@ -9,7 +9,15 @@
      <h4> $<%= @studio.price %>/hour </h4>
       <br>
       <br>
-      <%= link_to "Add availabilities", %>
+      <h2>Available slots</h2>
+      <% if @available_slots.blank? %>
+      <h4>There are no spots available</h4>
+      <% else %>
+      <% @available_slots.each do |slot| %>
+      <p> <%= "#{slot.date.strftime("%A, %d %B %Y")}: #{slot.start_time.strftime("%l:%M %p")} - #{slot.end_time.strftime("%l:%M %p")}" %> </p>
+      <% end %>
+      <% end %>
+      <%= link_to "Add availabilities", new_studio_slot_path(@studio), class: "btn btn-primary" %>
    </div>
 
    <div class = "col-xs-6" style = "background-color: #dedef8;
