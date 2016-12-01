@@ -1,8 +1,158 @@
-<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path 'images/homepage.jpeg' %>');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path 'bg2.png' %>);">
+
   <div class="banner-content">
-    <h1>See our list of band in formation</h1>
-    <p>"You want to play music, don't wait anymore, join one of our band in formation"</p>
-    <%= link_to "See the groups", groups_path, {class: "btn btn-primary"} %>
-    </a>
+    <h1>Come play with BandOn</h1>
+    <h2>Find your next Jam Session  </h2>
+
+    <div class="section group">
+     <div class="col span_1_of_5">
+       <div class="form-group">
+        <label for="sel1">City:</label>
+        <select class="form-control" id="sel1">
+          <option>Copenhagen  </option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+    </div>
+    <div class="col span_2_of_5">
+      <label for="sel1">From:</label>
+      <div class="form-group">
+        <div class='input-group date' id='datetimepicker7'>
+          <input type='text' class="form-control" />
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col span_3_of_5">
+      <label for="sel1">To:</label>
+      <div class="form-group">
+        <div class='input-group date' id='datetimepicker7'>
+          <input type='text' class="form-control" />
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col span_4_of_5">
+     <div class="form-group">
+       <label for="sel1">Genre:</label>
+       <select class="form-control" id="sel1">
+        <option>Rock</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+  </div>
+  <div class="col span_5_of_5">
+   <button type="button" class="btn btn-primary btn-lg-round">Search</button>
+ </div>
+</div>
+
+<div>
+  <script type="text/javascript">
+    $(function () {
+      $('#datetimepicker6').datetimepicker();
+      $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+          });
+      $("#datetimepicker6").on("dp.change", function (e) {
+        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+      });
+      $("#datetimepicker7").on("dp.change", function (e) {
+        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+      });
+    });
+  </script>
+</div>
+</div>
+</div>
+
+<div class="section-city">
+  <hr class="style-one">
+  <div class="container">
+    <div class="row">
+
+     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+       <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'barcelona.jpg' %>);">
+         <div class="card-description">Barcelona
+          <h3>Latin Tunes</h3>
+          <h4>Find your next Jam!</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'blog1.jpg' %>);">
+        <div class="card-description">The Blog!
+          <h3>News etc.</h3>
+          <h4>Listen to the grapewine!</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'paris.jpg' %>);">
+        <div class="card-description">Le Páris!
+          <h3>Music lovers</h3>
+          <h4>Join the french locals!</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'jam1.jpg' %>);">
+        <div class="card-description">Studio Jam!
+          <h3>Jam with others</h3>
+          <h4>Find out how it works</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'ny.jpg' %>);">
+        <div class="card-description">The Big Apple!
+          <h3>New York</h3>
+          <h4>Home of Jazz - go jam!</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'cph.jpg' %>);">
+        <div class="card-description">Wonderful Copenhagen
+          <h3>New Nordic</h3>
+          <h4>Join the nordic scene!</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'beats1.jpg' %>);">
+        <div class="card-description">Studio Recording!
+          <h3>Recording artist?</h3>
+          <h4>Get more information</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'la.jpg' %>);">
+        <div class="card-description">City of Angels.
+          <h3>Music Capitol</h3>
+          <h4>Get your Jam on in LA</h4>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<hr class="style-two">
+
+<div class="text-center center-block">
+  <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+  <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+  <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+  <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+</div>
+</div>
+
