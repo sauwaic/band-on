@@ -16,7 +16,7 @@ class StudiosController < ApplicationController
   def show
     @studio = Studio.find(params[:id])
     authorize @studio
-    @available_slots = @studio.slots.where(taken: false)
+    @available_slots = @studio.slots.where(taken: false).order(date: :asc)
     @studio_coordinates = { lat: @studio.latitude, lng: @studio.longitude }
   end
 
