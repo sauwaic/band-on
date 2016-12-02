@@ -11,6 +11,14 @@
       </div>
       <div class="col-xs-4">
 
+       <%= form_tag(filtered_groups_path, method: :get) do %>
+        <%= label_tag(:genre, "genre") %>
+        <%= select_tag("genre", options_for_select(%w(rock jazz punk acoustic indie hip-hop classical funk reggae blues metal other)), include_blank: true) %>
+        <%= label_tag(:address, "Where") %>
+        <%= select_tag("City", options_for_select(%w(Copenhagen Paris Los\ Angeles)), include_blank: true) %>
+        <%= submit_tag 'Search' %>
+        <% end %>
+
         <label for="sel1">City:</label>
         <select class="form-control" id="sel1">
           <option>Copenhagen  </option>

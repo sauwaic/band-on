@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'appointment/studios', to: 'appointments#studios'
   get 'appointment/studios/:id', to: 'appointments#slots', as: 'appointment_studio'
+  get 'filtered_groups', to: 'groups#filtered_index', as: 'filtered_groups'
 
   get '/my_groups', to: 'profiles#my_groups'
 end
