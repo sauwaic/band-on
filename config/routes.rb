@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   get 'appointment/studios/:id', to: 'appointments#slots', as: 'appointment_studio'
 
   get '/my_groups', to: 'profiles#my_groups'
+  get '/my_profile', to: 'profiles#my_profile'
+
 end
 
