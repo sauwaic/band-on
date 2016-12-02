@@ -1,27 +1,69 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8">
+<div class="bg-group-show">
 
-      <h3> <%= @group.name %> </h3>
-      <% if @group.photo? %>
-      <%= cl_image_tag @group.photo.path, width: 200, height: 300, crop: :fill %>
-      <% end %>
-      <p> <%= "Group admin: #{@group.admin.name || @group.admin.first_name}" %> </p>
-      <p> <%= "Group description: #{@group.description}" %> </p>
-      <p> Group members:
-        <% @group.users.each do |member| %>
-        <%= "#{member.name || member.first_name} |" %>
-        <% end %>
-      </p>
-    </div>
+  <div class="container">
 
-    <div class="col-xs-4">
-      <h1>Join Group</h1>
-      <%= simple_form_for [ @group, @group_user ] do |f| %>
-      <%= f.input :instrument_id, collection: Instrument.all, prompt: "Select your instrument" %>
-      <%= f.submit "Join group", class: "btn btn-primary btn-submit" %>
-      <% end %>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="grey-bkg-box">
+          <div class="group-title text-center">
+            <%= @group.name %>
+          </div>
 
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="group-summary">
+                <% if @group.photo? %>
+                <%= cl_image_tag @group.photo.path, class: 'polaroid-image' %>
+                <% end %>
+                <p> <%= "Group description: #{@group.description}" %> </p>
+              </div>
+
+              <div class="band-members">
+                <div class="section-title">
+                  <p>The band</p>
+                  <hr>
+                </div>
+                <div class="member-list">
+                  <div class="member-tag">
+                    <%= image_tag @group.admin.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
+                    <p> <%= "#{@group.admin.name || @group.admin.first_name}" %> </p>
+                  </div>
+
+                  <% @group.users.each do |member| %>
+                  <div class="member-tag">
+                    <%= image_tag member.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
+                    <p> <%= "#{member.name || member.first_name}" %> </p>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="studio-summary">
+                <div class="section-title">
+                  <p>The studio</p>
+                  <hr>
+                </div>
+                <div class="studio-content">''
+
+                  <p> Address: <%= @group.studio.address %></p>
+                </div>
+              </div>
+
+
+
+            </div>
+
+            <div class="col-xs-4">
+              <h1>Join Group</h1>
+              <%= simple_form_for [ @group, @group_user ] do |f| %>
+              <%= f.input :instrument_id, collection: Instrument.all, prompt: "Select your instrument" %>
+              <%= f.submit "Join group", class: "btn btn-primary btn-submit" %>
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

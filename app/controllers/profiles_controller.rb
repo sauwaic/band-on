@@ -5,4 +5,9 @@ class ProfilesController < ApplicationController
     authorize @groups.first
   end
 
+  def my_profile
+    @user = current_user
+    authorize @user
+  end
+
 end
