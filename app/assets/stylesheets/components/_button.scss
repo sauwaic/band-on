@@ -13,7 +13,7 @@
 }
 
 .btn-primary {
-  background: #B79FAD;
+  background: #D23333;
   color: #ffffff;
 }
 
@@ -28,10 +28,11 @@
 
 .btn-lg-round {
   border-radius: 50%;
-  line-height: 5;
+  line-height: 5.5;
   letter-spacing: 1px;
   padding: 14px 24px;
   font-weight: 700;
-  border: 2px;
+  border: 0.5px solid rgb(0,0,0);
+  box-shadow: 2px 2px 2px #000000;
 }
 
