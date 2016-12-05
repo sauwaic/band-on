@@ -2,9 +2,10 @@
   background-color: rgba(255,255,255,0.7);
   padding: 20px 20px;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 .group-title {
-  font-size: 25px;
+  font-size: 27px;
   text-transform: uppercase;
   font-family: 'Exo 2', sans-serif;
   letter-spacing: 3px;
@@ -14,6 +15,15 @@
   margin-left: -40px;
   margin-top: 20px;
 }
+.group-description {
+    margin-left: 20px;
+    margin-top: 40px;
+    font-size: 16px;
+    font-family: 'Exo 2', sans-serif;
+    line-height: 30px;
+    letter-spacing: 2px;
+    color: #373737;
+  }
 .polaroid-image{
   height: 300px;
   width: 250px;
@@ -32,12 +42,32 @@
   -moz-transform: rotate(-4deg);
   transform: rotate(-4deg);
 }
+.join-group{
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  margin-top: 60px;
+  position: relative;
+  h1 {
+    font-size: 22px;
+    text-transform: uppercase;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 3px;
+    margin-top: 50px;
+  }
+}
+.thumb-tack{
+  position: absolute;
+  top: -20px;
+  left: 60px;
+}
 .band-members{
   width: 70%;
   margin-bottom: 20px;
 }
 .section-title {
   font-size: 18px;
+  font-family: 'Exo 2', sans-serif;
   text-transform: uppercase;
   hr {
     margin-top: 10px;
@@ -51,7 +81,14 @@
   margin-right: 15px;
 }
 .studio-photo{
-  width: 70%;
-
+  width: 80%;
+  border: 5px solid white;
+  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+  -moz-box-shadow: 0 1px 2px rgba(34,25,25,0.4);
+  -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+}
+.studio-description{
+  font-size: 16px;
+  font-family: 'Exo 2', sans-serif;
 }
 
