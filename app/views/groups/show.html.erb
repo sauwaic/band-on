@@ -62,8 +62,11 @@
                 <%= image_tag 'http://www.clker.com/cliparts/B/V/P/X/Z/e/thumbtack-pushpin-2-th.png', class: 'thumb-tack' %>
                 <h1>Join Group</h1>
                 <br>
-                <%= simple_form_for [ @group, @group_user ] do |f| %>
-                <%= f.input :instrument_id, collection: Instrument.all, prompt: "Select your instrument", label: "Which instrument would you like to play?" %>
+                <div class="join-form">
+                  <%= simple_form_for [ @group, @group_user ] do |f| %>
+                  <%= f.input :instrument_id, collection: Instrument.all, prompt: "Drums?", label: "Pick your instrument:" %>
+                </div>
+
                 <%= f.submit "Join group", class: "btn btn-primary btn-submit" %>
                 <% end %>
               </div>
