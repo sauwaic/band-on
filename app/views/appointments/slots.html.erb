@@ -1,19 +1,35 @@
+<br>
+<br>
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
 
-      <h1>Step 2: Select slot</h1>
+      <div class='section-title' style='font-size: 25px;'>Step 2: Select slot</div>
 
       <% if @available_slots.blank? %>
       <h4>Sorry no spots available</h4>
       <% else %>
       <% @available_slots.each do |slot| %>
+      <ul>
+
+        <li>
+          <time class="icon <%="#{slot.date.strftime("%A").downcase}" %>">
+            <span class="month"><%="#{slot.date.strftime("%B").downcase}" %></span>
+            <span class="day"><%="#{slot.date.strftime("%d").downcase}" %></span>
+            <span class="week"><%="#{slot.date.strftime("%A")}" %></span>
+          </time>
+        </li>
+      </ul>
       <p> <%= link_to "#{slot.date.strftime("%A, %d %B %Y")}: #{slot.start_time.strftime("%l:%M %p")} - #{slot.end_time.strftime("%l:%M %p")}", new_group_path(slot_id: slot.id) %> </p>
       <% end %>
       <% end %>
 
-    </div>
-</div>
 
+
+
+
+    </div>
   </div>
+
+</div>
 </div>

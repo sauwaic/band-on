@@ -1,4 +1,4 @@
-<div class="bg-micro">
+<div class="bg-dashboard">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -36,11 +36,11 @@
           </div>
 
           <div class="member-card">
-            <%= image_tag @group_admin.facebook_picture_url, class: "avatar-large" %>
+            <%= image_tag @group_admin.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
             <div class="member-card-content">
               <div id="admin-tag"> admin </div>
               <h4> <%= "#{@group_admin.name || @group_admin.first_name}" %> </h4>
-              <p> On the <%= GroupUser.where(user: @group_admin).where(group: @group)[0].instrument.name %></p>
+              <p> On the <%= GroupUser.where(user: @group_admin).where(group: @group)[0].instrument.name || "..."  %></p>
             </div>
           </div>
 
@@ -54,42 +54,91 @@
           </div>
           <% end %>
         </div>
-      </div>
 
-      <div class="col-xs-6">
+        <div class="dashboard-box">
+         <div class="box-title">
+           The studio
+           <hr>
+         </div>
 
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="dashboard-box">
-              <div class="box-title">
-                Message board
-                <hr>
-              </div>
-              <div id="messages">
-                <% if @group.messages.blank? %>
-                <p id="first_message"> Be the first to leave a message </p>
-                <% else %>
-                <% @group.messages.each do |message| %>
-                <%= render 'messages/show', message: message %>
-                <% end %>
-                <% end %>
-              </div>
-              <%= render 'messages/form', group: @group, message: @message %>
-            </div>
-          </div>
+         <div class="studio-description">
+           <strong> <%= @group.studio.name %> </strong>
+           <br>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star" aria-hidden="true"></i>
+           <i class="fa fa-star-half" aria-hidden="true"></i>
 
-          <div class="col-xs-12">
-            <div class="dashboard-box">
-             <div class="box-title">
-              Jam playlist
-              <hr>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi debitis quam officia deleniti impedit iure adipisci numquam porro quis sapiente aspernatur saepe nemo, quibusdam, ex, nam! Asperiores pariatur aliquid illum.</p>
-          </div>
+           <br>
+           <br>
+           <strong> Address </strong>
+           <p> <%= @group.studio.address %></p>
+         </div>
+         <div id="map" style="width: 100%; height: 100px; position: static; margin-top: 20px;"></div>
+
+         <% content_for(:after_js) do %>
+         <%= javascript_tag do %>
+         $(document).ready(function() {
+         var handler = Gmaps.build('Google');
+         var styles = <%= render 'studios/mapstyle'%>;
+         handler.buildMap({
+         provider: {
+         styles: styles
+       },
+       internal: { id: 'map' } }, function() {
+       markers = handler.addMarkers(<%= raw @hash.to_json %>);
+       handler.bounds.extendWith(markers);
+       handler.fitMapToBounds();
+       if (markers.length == 0) {
+       handler.getMap().setZoom(2);
+     } else if (markers.length == 1) {
+     handler.getMap().setZoom(14);
+   }
+ });
+});
+<% end %>
+<% end %>
+</div>
+
+</div>
+
+<div class="col-xs-6">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="dashboard-box">
+        <div class="box-title">
+          Message board
+          <hr>
         </div>
+        <div id="messages">
+          <% if @group.messages.blank? %>
+          <p id="first_message"> Be the first to leave a message </p>
+          <% else %>
+          <% @group.messages.each do |message| %>
+          <%= render 'messages/show', message: message %>
+          <% end %>
+          <% end %>
+        </div>
+        <%= render 'messages/form', group: @group, message: @message %>
       </div>
+    </div>
+
+    <div class="col-xs-12">
+      <div class="dashboard-box">
+       <div class="box-title">
+        Jam playlist
+        <hr>
+      </div>
+      <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A7b9XqnXw5J47tmn0Y0IZeW" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>
     </div>
   </div>
 </div>
-
 </div>
+</div>
+</div>
+<br>
+<br>
+</div>
+

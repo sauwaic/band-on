@@ -1,9 +1,10 @@
 <div class="bg-guitar">
   <div class="container">
     <div class="row">
-      <div class="col-xs-8">
-        <div class="text-center">
-          <h1>Select jam session</h1>
+
+    <div class="col-xs-8">
+        <div class="index-title">
+          Select your jam
         </div>
         <% @groups.each do |group| %>
         <%= render 'group_card', group: group %>
@@ -11,8 +12,11 @@
       </div>
 
 
-      <div class="filtercard col-xs-4">
-
+      <div class="col-xs-4">
+      <div class="index-title">
+      Filters
+      </div>
+      <br>
         <label for="sel1">City:</label>
         <select class="form-control" id="sel1">
           <option>Copenhagen  </option>
@@ -23,14 +27,13 @@
           <option>Rock</option>
         </select>
 
+        <br>
+        <button type="button" class="btn btn-primary">Filter</button>
+      </div>
 
 
-      <button type="button" class="btn btn-primary filter">Filter</button>
     </div>
-
-
   </div>
 </div>
-</div>
-</div>
+
 
