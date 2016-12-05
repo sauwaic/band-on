@@ -10,4 +10,9 @@ class ProfilesController < ApplicationController
     authorize @user
   end
 
+  def show
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
 end
