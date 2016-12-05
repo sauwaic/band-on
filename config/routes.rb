@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   resources :slots, only: [:new, :create]
 end
 
-get 'appointment/studios', to: 'appointments#studios'
-get 'appointment/studios/:id', to: 'appointments#slots', as: 'appointment_studio'
+  get 'appointment/studios', to: 'appointments#studios'
+  get 'appointment/studios/:id', to: 'appointments#slots', as: 'appointment_studio'
+  get 'filtered_groups', to: 'groups#filtered_index', as: 'filtered_groups'
+
 
 get '/my_groups', to: 'profiles#my_groups'
 get '/my_profile', to: 'profiles#my_profile'

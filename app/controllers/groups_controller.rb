@@ -8,6 +8,13 @@ class GroupsController < ApplicationController
     @groups = policy_scope(Group).order(created_at: :desc)
   end
 
+  def filtered_index
+    @groups = Group.joins(slot: :studio).where('studios.address' => params[:address]).where('genre' => params[:genre]) if params[:genre].present?
+    authorize @groups
+    render 'index'
+
+  end
+
   def show
     @group_user = GroupUser.new
 

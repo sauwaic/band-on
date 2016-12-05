@@ -25,4 +25,8 @@ class GroupPolicy < ApplicationPolicy
     true
   end
 
+  def filtered_index?
+    true
+  end
+
 end
