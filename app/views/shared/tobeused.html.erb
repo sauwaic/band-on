@@ -170,3 +170,67 @@ margin-right: 15px;
 width: 70%;
 }
 
+
+<div class="col-xs-4">
+  <div class="polaroid-image join-group">
+    <%= image_tag 'http://www.clker.com/cliparts/B/V/P/X/Z/e/thumbtack-pushpin-2-th.png', class: 'thumb-tack' %>
+    <h1>Join Group</h1>
+    <br>
+    <%= simple_form_for [ @group, @group_user ] do |f| %>
+    <%= f.input :instrument_id, collection: Instrument.all, prompt: "Select your instrument", label: "Which instrument would you like to play?" %>
+    <%= f.submit "Join group", class: "btn btn-primary btn-submit" %>
+    <% end %>
+  </div>
+</div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-6">
+    <%= image_tag @group.studio.photo || 'drums.jpg', class: 'studio-photo'%>
+  </div>
+
+  <div class="col-xs-6">
+    <div class="studio-description">
+      <strong> <%= @user.studio.name %> </strong>
+      <br>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star-half" aria-hidden="true"></i>
+
+      <br>
+      <br>
+      <strong> Address </strong>
+      <p> <%= @group.studio.address %></p>
+    </div>
+  </div>
+
+           <div class="col-xs-12">
+
+                  <div id="map" style="width: 100%; height: 300px; position: static; margin-top: 20px;"></div>
+
+                  <% content_for(:after_js) do %>
+                  <%= javascript_tag do %>
+                  $(document).ready(function() {
+                  var handler = Gmaps.build('Google');
+                  var styles = <%= render 'studios/mapstyle'%>;
+                  handler.buildMap({
+                  provider: {
+                  styles: styles
+                },
+                internal: { id: 'map' } }, function() {
+                markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+                if (markers.length == 0) {
+                handler.getMap().setZoom(2);
+              } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
+        });
+        <% end %>
+        <% end %>
+      </div>
