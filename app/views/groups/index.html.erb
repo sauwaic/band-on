@@ -1,41 +1,29 @@
 <div class="bg-guitar">
+  <div class="text-center">
+    <h1>Select jam session</h1>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-8">
-        <div class="text-center">
-          <h1>Select jam session</h1>
-        </div>
         <% @groups.each do |group| %>
         <%= render 'group_card', group: group %>
         <% end %>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-4 filterbox">
 
        <%= form_tag(filtered_groups_path, method: :get) do %>
-        <%= label_tag(:genre, "genre") %>
-        <%= select_tag("genre", options_for_select(%w(rock jazz punk acoustic indie hip-hop classical funk reggae blues metal other)), include_blank: true) %>
-        <%= label_tag(:address, "Where") %>
-        <%= select_tag("City", options_for_select(%w(Copenhagen Paris Los\ Angeles)), include_blank: true) %>
-        <%= submit_tag 'Search' %>
-        <% end %>
-
-        <label for="sel1">City:</label>
-        <select class="form-control" id="sel1">
-          <option>Copenhagen  </option>
-        </select>
-
-        <label for="sel1">Genre:</label>
-        <select class="form-control" id="sel1">
-          <option>Rock</option>
-        </select>
-      </div>
-      <li></li>
-      <button type="button" class="btn btn-primary">Search</button>
-    </div>
+       <%= label_tag(:genre, "genre") %>
+       <%= select_tag("genre", options_for_select(%w(rock jazz punk acoustic indie hip-hop classical funk reggae blues metal other)), include_blank: true) %>
+       <%= label_tag(:address, "Where") %>
+       <%= select_tag("City", options_for_select(%w(Copenhagen Paris Los\ Angeles)), include_blank: true) %>
+       <%= submit_tag 'Search' %>
+       <% end %>
 
 
-  </div>
-</div>
-</div>
+     </div>
+   </div>
+
+
+ </div>
 </div>
 

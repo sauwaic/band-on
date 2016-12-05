@@ -1,0 +1,60 @@
+=> [[32m#<Group:0x00565139aad698[0m
+  id: [1;34m44[0m,
+  name: [31m[1;31m"[0m[31mLead Research Technician[1;31m"[0m[31m[0m,
+  number_of_players: [1;34m5[0m,
+  description:
+   [31m[1;31m"[0m[31mLorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ut culpa quibusdam corporis.[1;31m"[0m[31m[0m,
+  genre: [31m[1;31m"[0m[31mpunk[1;31m"[0m[31m[0m,
+  price_per_user: [1;36mnil[0m,
+  created_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m36[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m36[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  level: [31m[1;31m"[0m[31madvanced[1;31m"[0m[31m[0m,
+  admin_id: [1;34m337[0m[32m>[0m,
+ [32m#<Group:0x00565139aad558[0m
+  id: [1;34m45[0m,
+  name: [31m[1;31m"[0m[31mDistrict Brand Strategist[1;31m"[0m[31m[0m,
+  number_of_players: [1;34m3[0m,
+  description:
+   [31m[1;31m"[0m[31mLorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ut culpa quibusdam corporis.[1;31m"[0m[31m[0m,
+  genre: [31m[1;31m"[0m[31mrock[1;31m"[0m[31m[0m,
+  price_per_user: [1;36mnil[0m,
+  created_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m36[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m36[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  level: [31m[1;31m"[0m[31mbeginner[1;31m"[0m[31m[0m,
+  admin_id: [1;34m355[0m[32m>[0m,
+ [32m#<Group:0x00565139aad418[0m
+  id: [1;34m46[0m,
+  name: [31m[1;31m"[0m[31mCustomer Brand Representative[1;31m"[0m[31m[0m,
+  number_of_players: [1;34m3[0m,
+  description:
+   [31m[1;31m"[0m[31mLorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ut culpa quibusdam corporis.[1;31m"[0m[31m[0m,
+  genre: [31m[1;31m"[0m[31mother[1;31m"[0m[31m[0m,
+  price_per_user: [1;36mnil[0m,
+  created_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m37[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m37[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  level: [31m[1;31m"[0m[31madvanced[1;31m"[0m[31m[0m,
+  admin_id: [1;34m358[0m[32m>[0m,
+ [32m#<Group:0x00565139aad2d8[0m
+  id: [1;34m47[0m,
+  name: [31m[1;31m"[0m[31mCustomer Identity Consultant[1;31m"[0m[31m[0m,
+  number_of_players: [1;34m5[0m,
+  description:
+   [31m[1;31m"[0m[31mLorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ut culpa quibusdam corporis.[1;31m"[0m[31m[0m,
+  genre: [31m[1;31m"[0m[31mjazz[1;31m"[0m[31m[0m,
+  price_per_user: [1;36mnil[0m,
+  created_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m37[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m37[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  level: [31m[1;31m"[0m[31mintermediate[1;31m"[0m[31m[0m,
+  admin_id: [1;34m340[0m[32m>[0m,
+ [32m#<Group:0x00565139aad198[0m
+  id: [1;34m48[0m,
+  name: [31m[1;31m"[0m[31mInvestor Assurance Engineer[1;31m"[0m[31m[0m,
+  number_of_players: [1;34m4[0m,
+  description:
+   [31m[1;31m"[0m[31mLorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ut culpa quibusdam corporis.[1;31m"[0m[31m[0m,
+  genre: [31m[1;31m"[0m[31mblues[1;31m"[0m[31m[0m,
+  price_per_user: [1;36mnil[0m,
+  created_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m37[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mThu[0m, [1;34m01[0m [1;34;4mDec[0m [1;34m2016[0m [1;34m13[0m:[1;34m11[0m:[1;34m37[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  level: [31m[1;31m"[0m[31madvanced[1;31m"[0m[31m[0m,
+  admin_id: [1;34m343[0m[32m>[0m]
