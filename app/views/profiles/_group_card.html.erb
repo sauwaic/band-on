@@ -1,0 +1,8 @@
+<h3> <%= link_to group.name, group_dashboard_path(group) %> </h3>
+<p> <%= "Group admin: #{group.admin.name || group.admin.first_name}" %> </p>
+<p> Group members:
+  <% group.users.each do |member| %>
+    <%= "#{member.name || member.first_name} |" %>
+  <% end %>
+</p>
+<p> <%= group.description %> </p>

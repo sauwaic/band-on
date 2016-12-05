@@ -4,26 +4,32 @@
   </div>
   <div class="container">
     <div class="row">
+
       <div class="col-xs-8">
+        <div class="index-title">
+          Select your jam
+        </div>
         <% @groups.each do |group| %>
         <%= render 'group_card', group: group %>
         <% end %>
       </div>
-      <div class="col-xs-4 filterbox">
 
-       <%= form_tag(filtered_groups_path, method: :get) do %>
-       <%= label_tag(:genre, "genre") %>
-       <%= select_tag("genre", options_for_select(%w(rock jazz punk acoustic indie hip-hop classical funk reggae blues metal other)), include_blank: true) %>
-       <%= label_tag(:address, "Where") %>
-       <%= select_tag("City", options_for_select(%w(Copenhagen Paris Los\ Angeles)), include_blank: true) %>
-       <%= submit_tag 'Search' %>
-       <% end %>
+      <div class="col-xs-4">
+        <div class="index-title">
+          Filters
+        </div>
+        <br>
+        <%= form_tag(filtered_groups_path, method: :get) do %>
+        <%= label_tag(:genre, "genre") %>
+        <%= select_tag("genre", options_for_select(%w(rock jazz punk acoustic indie hip-hop classical funk reggae blues metal other)), include_blank: true) %>
+        <%= label_tag(:address, "Where") %>
+        <%= select_tag("City", options_for_select(%w(Copenhagen Paris Los\ Angeles)), include_blank: true) %>
+        <%= submit_tag 'Search' %>
+        <% end %>
 
-
-     </div>
-   </div>
-
-
- </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 

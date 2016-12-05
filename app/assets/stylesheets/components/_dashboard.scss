@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+
+  h1, h2, h3, h4, p {
+    font-family: 'Exo 2', sans-serif;
+  }
+
+.dashboard-box {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: rgba(255,255,255,0.6);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+  padding: 20px 20px;
+}
+
+#title-box {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+
+}
+
+#group-image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  margin-right: 30px;
+}
+
+#group-content {
+  flex: 1 1 auto;
+  align-content: left;
+}
+
+#admin-controls {
+  align: right;
+  font-size: 30px;
+  i {
+    padding: 5px;
+    color: #2E6171;
+    &:hover {
+    color: #B79FAD;
+    }
+  }
+
+}
+
+.box-title {
+  font-size: 28px;
+  hr {
+    margin-top: 10px;
+  }
+}
+
+.member-card {
+  margin-bottom: 10px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.member-card-content{
+  margin-left: 30px;
+  h4 {
+    line-height: 6px;
+  }
+  p {
+    font-style: italic;
+  }
+}
+
+#admin-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+}

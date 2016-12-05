@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :groups
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
-  get '/design', to: 'designs#design'
+  get "profiles/:id", to: 'profiles#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :groups do
@@ -13,14 +13,16 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :studios, only: [:index, :show, :new, :create] do
-    resources :slots, only: [:new, :create]
-  end
+ resources :studios, only: [:index, :show, :new, :create] do
+  resources :slots, only: [:new, :create]
+end
 
   get 'appointment/studios', to: 'appointments#studios'
   get 'appointment/studios/:id', to: 'appointments#slots', as: 'appointment_studio'
   get 'filtered_groups', to: 'groups#filtered_index', as: 'filtered_groups'
 
-  get '/my_groups', to: 'profiles#my_groups'
-end
 
+get '/my_groups', to: 'profiles#my_groups'
+get '/my_profile', to: 'profiles#my_profile'
+
+end

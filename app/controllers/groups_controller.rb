@@ -17,10 +17,16 @@ class GroupsController < ApplicationController
 
   def show
     @group_user = GroupUser.new
+
+    @hash = Gmaps4rails.build_markers(@group.studio) do |studio, marker|
+      marker.lat studio.latitude
+      marker.lng studio.longitude
+    end
   end
 
   def new
     @group = Group.new
+    @group_user = GroupUser.new
     @slot_id = params[:slot_id]
     authorize @group
   end
@@ -34,7 +40,10 @@ class GroupsController < ApplicationController
     slot.save
     authorize group
     group.save
-    redirect_to group_path(group)
+    group_user = GroupUser.new(user: current_user, group: group)
+    group_user.instrument = Instrument.find(params[:group_user][:instrument_id])
+    group_user.save
+    redirect_to group_dashboard_path(group)
   end
 
   def edit
@@ -42,7 +51,7 @@ class GroupsController < ApplicationController
 
   def update
     @group.update(group_params)
-    redirect_to group_path(@group)
+    redirect_to group_dashboard_path(@group)
   end
 
 
@@ -61,7 +70,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, :description, :genre, :level, :photo)
+    params.require(:group).permit(:name, :description, :genre, :level, :instrument_id, :photo)
   end
 
 end

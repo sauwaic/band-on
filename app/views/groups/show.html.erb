@@ -1,34 +1,133 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-8">
+<div class="bg-group-show">
 
-      <h3> <%= @group.name %> </h3>
-      <% if @group.photo? %>
-      <%= cl_image_tag @group.photo.path, width: 200, height: 300, crop: :fill %>
-      <% end %>
-      <p> <%= "Group admin: #{@group.admin.name}" %> </p>
-      <p> <%= "Group description: #{@group.description}" %> </p>
-      <p> Group members:
-        <% @group.users.each do |member| %>
-        <%= "#{member.name} |" %>
-        <% end %>
-      </p>
+  <div class="container">
 
-      <% if policy(@group).update? %>
-      <%= link_to "Edit group", edit_group_path(@group), class: "btn btn-primary btn-submit" %>
-      <br>
-      <br>
-      <%= link_to "Delete group", group_path(@group), method: :delete, class: "btn btn-primary btn-submit" %>
-      <% end %>
-    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="grey-bkg-box">
+          <div class="group-title text-center">
+            <%= @group.name %>
+          </div>
 
-    <div class="col-xs-4">
-      <h1>Join Group</h1>
-      <%= simple_form_for [ @group, @group_user ] do |f| %>
-      <%= f.input :instrument_id, collection: Instrument.all, prompt: "Select your instrument" %>
-      <%= f.submit "Join group", class: "btn btn-primary btn-submit" %>
-      <% end %>
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="group-summary">
+                <% if @group.photo? %>
+                <%= cl_image_tag @group.photo.path, class: 'polaroid-image' %>
+                <% end %>
+                <div class="group-description">
+                  <%= "DESCRIPTION: #{@group.description}" %>
+                  <br>
+                  <%= "GENRE: #{@group.genre.capitalize}" %>
+                  <br>
+                  <%= "LEVEL: #{@group.level.capitalize}" %>
+                  <br>
+                  <%= "JAM DATE: #{@group.slot.date.strftime("%A, %d %b %Y")}" %>
+                  <br>
+                  <%= "SESSION TIME: #{@group.slot.start_time.strftime("%l:%M %p")} to #{@group.slot.end_time.strftime("%l:%M %p")}" %>
+                </div>
+              </div>
 
-    </div>
-  </div>
+              <div class="band-members">
+                <div class="section-title">
+                  <p>The band</p>
+                  <hr>
+                </div>
+                <div class="member-list">
+                  <div class="member-tag">
+                    <%= image_tag @group.admin.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
+                    <p> <%= "#{@group.admin.name || @group.admin.first_name}" %> </p>
+                  </div>
+
+                  <% @group.users.each do |member| %>
+                  <div class="member-tag">
+                    <%= image_tag member.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
+                    <p> <%= "#{member.name || member.first_name}" %> </p>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="studio-summary">
+                <div class="section-title">
+                  <p>The studio</p>
+                  <hr>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-xs-4">
+              <div class="polaroid-image join-group">
+                <%= image_tag 'http://www.clker.com/cliparts/B/V/P/X/Z/e/thumbtack-pushpin-2-th.png', class: 'thumb-tack' %>
+                <h1>Join Group</h1>
+                <br>
+                <div class="join-form">
+                  <%= simple_form_for [ @group, @group_user ] do |f| %>
+                  <%= f.input :instrument_id, collection: Instrument.all, prompt: "Drums?", label: "Pick your instrument:" %>
+                </div>
+
+                <%= f.submit "Join group", class: "btn btn-primary btn-submit" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <%= image_tag @group.studio.photo || 'drums.jpg', class: 'studio-photo'%>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="studio-description">
+               <strong> <%= @group.studio.name %> </strong>
+               <br>
+               <i class="fa fa-star" aria-hidden="true"></i>
+               <i class="fa fa-star" aria-hidden="true"></i>
+               <i class="fa fa-star" aria-hidden="true"></i>
+               <i class="fa fa-star" aria-hidden="true"></i>
+               <i class="fa fa-star-half" aria-hidden="true"></i>
+
+               <br>
+               <br>
+               <strong> Address </strong>
+               <p> <%= @group.studio.address %></p>
+             </div>
+           </div>
+
+           <div class="col-xs-12">
+
+            <div id="map" style="width: 100%; height: 300px; position: static; margin-top: 20px;"></div>
+
+            <% content_for(:after_js) do %>
+            <%= javascript_tag do %>
+            $(document).ready(function() {
+            var handler = Gmaps.build('Google');
+            var styles = <%= render 'studios/mapstyle'%>;
+            handler.buildMap({
+            provider: {
+            styles: styles
+          },
+          internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
+  });
+  <% end %>
+  <% end %>
 </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
