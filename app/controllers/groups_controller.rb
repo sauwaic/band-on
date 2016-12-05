@@ -10,6 +10,11 @@ class GroupsController < ApplicationController
 
   def show
     @group_user = GroupUser.new
+
+    @hash = Gmaps4rails.build_markers(@group.studio) do |studio, marker|
+      marker.lat studio.latitude
+      marker.lng studio.longitude
+    end
   end
 
   def new

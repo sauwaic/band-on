@@ -1,17 +1,21 @@
+<br>
+<br>
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
      <% if @studio.photo? %>
-     <%= cl_image_tag @studio.photo.path, width: 200, height: 300, crop: :fill %>
+     <%= cl_image_tag @studio.photo.path, class: 'studio-photo' %>
      <% end %>
-     <h1> <%= @studio.name %> </h1>
-     <h4> Address: <%= @studio.address %> </h4>
-     <h4> $<%= @studio.price %>/hour </h4>
+     <div class='group-title'> <%= @studio.name %> </div>
+     <div class='studio-description'> PRICE $<%= @studio.price %>/hour </div>
       <br>
       <br>
-      <h2>Available slots</h2>
+      <div class='section-title'>
+      <p>Available slots</p>
+      <hr>
+      </div>
       <% if @available_slots.blank? %>
-      <h4>There are no spots available</h4>
+      <p>There are no spots available</p>
       <% else %>
       <% @available_slots.each do |slot| %>
       <p> <%= "#{slot.date.strftime("%A, %d %B %Y")}: #{slot.start_time.strftime("%l:%M %p")} - #{slot.end_time.strftime("%l:%M %p")}" %> </p>
@@ -20,10 +24,13 @@
       <%= link_to "Add availabilities", new_studio_slot_path(@studio), class: "btn btn-primary" %>
    </div>
 
-   <div class = "col-xs-6" style = "background-color: #dedef8;
-   box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+   <div class = "col-xs-6">
+   <div class="address">
+    <strong> Address </strong>
+    <p> <%= @studio.address %> </p>
+   </div>
 
-   <div id="map" style="width: 100%; height: 100vh; position: static"></div>
+   <div id="map" style="width: 100%; height: 500px; position: static; margin-top: 30px;"></div>
 
    <% content_for(:after_js) do %>
    <%= javascript_tag do %>
