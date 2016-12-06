@@ -16,6 +16,9 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @group_admin = @group.admin
+    @group_members = @group.users.reject {|user| user == @group.admin}
+
     @group_user = GroupUser.new
 
     @hash = Gmaps4rails.build_markers(@group.studio) do |studio, marker|

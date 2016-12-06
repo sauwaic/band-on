@@ -13,6 +13,13 @@
   </div>
 
   <div class="group-card-members">
+    <% group_admin = group.admin %>
+    <% group_members = group.users.reject {|user| user == group.admin} %>
+
+    <div class="group-card-member-avatar">
+    <%= image_tag group_admin.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-index" %>
+    </div>
+
     <% group.users.each do |member| %>
     <div class="group-card-member-avatar">
       <%= image_tag member.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-index" %>
@@ -35,5 +42,4 @@
   </div>
 
 </div>
-
 
