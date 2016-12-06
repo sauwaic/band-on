@@ -211,6 +211,7 @@ users = [
       description:"Young musician, involved in several rock bands, looking for a cool band to experiment new kind of music",
       experience: "beginner",
       genre: "rock",
+      url: 'https://randomuser.me/api/portraits/men/35.jpg'
     },
 
 {
@@ -222,6 +223,7 @@ users = [
       description:"6 years playing the bass-guitar, willing to integrate a funk band in the States",
       experience: "intermediate",
       genre: "funk",
+      url: 'https://randomuser.me/api/portraits/women/90.jpg'
     },
 
 {
@@ -233,6 +235,7 @@ users = [
       description:"Drummer in different band for more than 10 years, I love rock'n'roll music from the 80's and the 70's",
       experience: "advanced",
       genre: "rock",
+      url: 'https://randomuser.me/api/portraits/men/85.jpg'
     },
 
 {
@@ -244,6 +247,7 @@ users = [
       description:"Guitarist on both electric and acustic guitar, been playing with friends for several years, now looking for a cool band to produce some good music",
       experience: "advanced",
       genre: "rock",
+      url: 'https://randomuser.me/api/portraits/men/9.jpg'
     },
 
 {
@@ -255,6 +259,7 @@ users = [
       description:"I play with a Microkorg, synthetizer, voicoder, willing to create some cool atmosphere for the future band i will play with",
       experience: "intermediate",
       genre: "indie",
+      url: 'https://randomuser.me/api/portraits/women/26.jpg'
     },
 
 {
@@ -266,6 +271,7 @@ users = [
       description:"I love to sing under the shower, and listen to great singers like Melodie Gardot, Adele and Whitney Houston, I want to use my voice in a band",
       experience: "intermediate",
       genre: "jazz",
+      url: 'https://randomuser.me/api/portraits/women/13.jpg'
     },
 
 {
@@ -277,6 +283,7 @@ users = [
       description:"Have been playing the trumpet and the saxophone for 5 years now, willing to integrate a jazz/funk band in Copenhagen",
       experience: "intermediate",
       genre: "jazz",
+      url: 'https://randomuser.me/api/portraits/men/17.jpg'
     },
 
 {
@@ -288,6 +295,7 @@ users = [
       description:"Talented pianist, willing to integrate a cool band, available to play two times a week.",
       experience: "advanced",
       genre: "classical",
+      url: 'https://randomuser.me/api/portraits/women/67.jpg'
     },
 
 {
@@ -299,6 +307,7 @@ users = [
       description:"Guitarist in a metal band for 2 years, now looking for a new band, Metal or hard-rock",
       experience: "beginner",
       genre: "metal",
+      url: 'https://randomuser.me/api/portraits/men/19.jpg'
     },
 
 {
@@ -310,6 +319,7 @@ users = [
       description:"Guitarist in a rock band for 1 years, really into new indie rock band like Tame Impala or Moby",
       experience: "beginner",
       genre: "rock",
+      url: 'https://randomuser.me/api/portraits/men/11.jpg'
     },
 
 {
@@ -321,6 +331,7 @@ users = [
       description:"Violin player. 6 years of conservatory in Vienna, looking for a classical group to play some relaxing classical music",
       experience: "advanced",
       genre: "classic",
+      url: 'https://randomuser.me/api/portraits/women/33.jpg'
     },
 
 {
@@ -332,6 +343,7 @@ users = [
       description:"Playing the drum for ten years now, recently quit my old band because of discord on the music we wanted to play, now looking for an easy going band to play some cool stuff",
       experience: "intermediate",
       genre: "other",
+      url: 'https://randomuser.me/api/portraits/men/20.jpg'
     },
 
 {
@@ -343,13 +355,15 @@ users = [
       description:"Bass-guitar and guitar player, already played in 3 different bands, looking to have fun with other musicians",
       experience: "advanced",
       genre: "reggae",
+      url: 'https://randomuser.me/api/portraits/men/22.jpg'
     },
 ]
 
 
-users.each do  |user|
-  user = User.new(user)
+users.each do  |member|
+  user = User.new(member)
   if user.save
+    user.photo_url = user[:url]
     puts "#{user.name} created"
   else
     puts  "Error #{user.name} not created"
