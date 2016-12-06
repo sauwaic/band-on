@@ -1,5 +1,5 @@
 .user-bkg-box {
-  background-color: rgba(100,100,100,0.7);
+  background-color: rgba(259,259,259,0.7);
   padding: 20px 20px;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -16,15 +16,15 @@
   margin-top: 20px;
 }
 .user-description {
-    margin-left: 20px;
-    margin-top: 40px;
-    font-size: 16px;
-    font-family: 'Exo 2', sans-serif;
-    line-height: 30px;
-    letter-spacing: 2px;
-    color: #373737;
-    padding-left: 5px;
-  }
+  margin-left: 20px;
+  margin-top: 0px;
+  font-size: 16px;
+  font-family: 'Exo 2', sans-serif;
+  line-height: 30px;
+  letter-spacing: 2px;
+  color: #373737;
+  padding-left: 5px;
+}
 
 .polaroid-image{
   height: 300px;
@@ -93,6 +93,48 @@
   font-size: 16px;
   font-family: 'Exo 2', sans-serif;
 }
+.studio-card{
+  position: absolute;
+  right: 10px;
+  top: 10px;
 
-
+  height: 130px;
+  width: 120px;
+  object-fit: cover;
+  background: white;
+  display: inline;
+  float: left;
+  margin: 0 15px 30px;
+  padding: 10px 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+  -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.studio-thumb-tack{
+  position: absolute;
+  right: 13px;
+  top: -30px;
+  transform: scale(0.5, 0.5);
+}
+.studio-card-description {
+  margin-top: 25px;
+  font-size: 15px;
+  color: black;
+  text-transform: uppercase;
+  font-family: 'Exo 2', sans-serif;
+  letter-spacing: 2px;
+  line-height: 15px;
+  overflow: hidden;
+  text-overflow: clip;
+  i {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+}
 
