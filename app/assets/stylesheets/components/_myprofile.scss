@@ -115,13 +115,13 @@
   -moz-transform: rotate(0deg);
   transform: rotate(0deg);
 }
-.studio-thumb-tack{
+.user-thumb-tack{
   position: absolute;
-  right: 13px;
+  right: 78px;
   top: -30px;
   transform: scale(0.5, 0.5);
 }
-.studio-card-description {
+.user-card-description {
   margin-top: 25px;
   font-size: 15px;
   color: black;
@@ -136,5 +136,63 @@
     margin-bottom: 10px;
     font-size: 12px;
   }
+}
+
+.user-card {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    height: 130px;
+    width: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    background: white;
+    display: inline;
+    float: left;
+    margin: 0px 15px 30px;
+    padding: 00px 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.index-title {
+  font-size: 27px;
+  text-transform: uppercase;
+  font-family: 'Exo 2', sans-serif;
+  letter-spacing: 3px;
+  margin-top: 30px;
+}
+
+.group-card {
+    height: 175px;
+    background-size: cover !important;
+    color: white;
+    position: relative;
+    border: 5px solid black;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.user-jam {
+  margin-left: 20px;
+  margin-top: 0px;
+  font-size: 16px;
+  font-family: 'Exo 2', sans-serif;
+  line-height: 30px;
+  letter-spacing: 2px;
+  color: #373737;
+  padding-left: 5px;
+}
+
+.index-jam {
+  font-size: 27px;
+  text-transform: uppercase;
+  font-family: 'Exo 2', sans-serif;
+  letter-spacing: 3px;
 }
 

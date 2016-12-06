@@ -7,7 +7,9 @@ class ProfilesController < ApplicationController
 
   def my_profile
     @user = current_user
+    @groups = current_user.groups
     authorize @user
+    authorize @groups
   end
 
   def show
