@@ -23,13 +23,18 @@ studio_slots = [
     studio: {
       name:"Vibe Factory Recording Studio",
       address:"Rentemestervej 52",
-      price: 500,
+      price: 500
     },
     slot: {
       date: Date.new(2016,5,3),
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+02:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+03:00"),
     },
+    urls:  [
+  'http://vibefactory.dk/wp-content/uploads/2013/06/Control1-620x413.jpg',
+  'http://vibefactory.dk/wp-content/uploads/2013/06/Studio-620x413.jpg',
+  'http://vibefactory.dk/wp-content/uploads/2013/06/Studio2-620x386.jpg'
+    ]
   },
 
   {
@@ -43,6 +48,10 @@ studio_slots = [
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+02:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+03:00")
     },
+    urls:  [
+  'http://www.tornadostudios.dk/pics/gear/recordingarea116.jpg',
+  'http://www.tornadostudios.dk/pics/studio/Black%20tornado/vocalroom.jpg'
+    ]
   },
 
   {
@@ -56,6 +65,11 @@ studio_slots = [
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+04:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+05:00")
     },
+    urls:  [
+  'http://www.soundcheck.dk/uploads/artikler/501/files/ctrl-room-overall.jpg',
+  'http://www.soundcheck.dk/uploads/artikler/501/files/indspillerrum.jpg',
+  'http://www.soundcheck.dk/uploads/artikler/501/files/keys.jpg'
+    ]
   },
 
   {
@@ -69,6 +83,11 @@ studio_slots = [
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+06:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+07:00")
     },
+    urls:  [
+  'http://www.studiolunarossa.com/Luna_Rossa-Studio_de_repetition_a_Paris/Studio_ACH4712_files/LunaRossaStudio4.jpg',
+  'http://www.studiolunarossa.com/Luna_Rossa-Studio_de_repetition_a_Paris/Studio_ACH4712_files/LunaRossaStudio7.jpg',
+'http://www.studiolunarossa.com/Luna_Rossa-Studio_de_repetition_a_Paris/Studio_ACH4712_files/LunaRossaStudio12%20bis.jpg'
+    ]
   },
 
  {
@@ -82,6 +101,11 @@ studio_slots = [
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+01:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+02:00")
     },
+    urls:  [
+  'http://www.montmartrerecording.com/wp-content/uploads/2015/04/studio-enregistrement-cabine-paris18.jpg',
+  'http://www.montmartrerecording.com/wp-content/uploads/2015/04/salon-detente-canape-MR.jpg',
+  'http://www.montmartrerecording.com/wp-content/uploads/2015/04/micros-prises-casques-5.1.jpg'
+    ]
   },
 
    {
@@ -95,6 +119,11 @@ studio_slots = [
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+02:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+02:30")
     },
+    urls:  [
+  'https://s3-media1.fl.yelpcdn.com/bphoto/7Rtwq3tr3zGTEiNLUb0wpQ/o.jpg',
+  'https://s3-media2.fl.yelpcdn.com/bphoto/FnL8HaQkg8_anYMQMcD_1Q/o.jpg',
+  'https://s3-media2.fl.yelpcdn.com/bphoto/aOdO0NthZCKgOfdGM_tArg/o.jpg'
+    ]
   },
 
     {
@@ -108,6 +137,11 @@ studio_slots = [
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+02:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+02:30")
     },
+    urls:  [
+  'http://www.red-sound.com/lightbox/gallery_files/vlb_images1/1.jpg',
+  'http://www.red-sound.com/lightbox/gallery_files/vlb_images1/8.jpg',
+  'http://www.red-sound.com/lightbox/gallery_files/vlb_images1/29.jpg'
+    ]
   },
 
    {
@@ -121,6 +155,11 @@ studio_slots = [
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+06:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+07:30")
     },
+    urls:  [
+  'https://scontent-ams3-1.xx.fbcdn.net/t31.0-8/194581_210376028977199_6288178_o.jpg',
+  'https://scontent-ams3-1.xx.fbcdn.net/v/t1.0-9/12065481_1157509870930472_3824917962611544511_n.jpg?oh=74f6da8943128eeb8f11f4efce4f5244&oe=58B4939A',
+  'https://scontent-ams3-1.xx.fbcdn.net/t31.0-8/1492715_772119356136194_2133312241_o.jpg'
+    ]
   },
 
   {
@@ -134,8 +173,12 @@ studio_slots = [
       start_time: Time.new(2016, 10, 31, 2, 2, 2, "+00:00"),
       end_time: Time.new(2016, 10, 31, 2, 2, 2, "+01:30")
     },
+    urls:  [
+  'https://rob852.files.wordpress.com/2013/07/dsc_0274.jpg',
+  'https://static.groupon.hk/05/54/1318602145405.jpg',
+  'https://static.groupon.hk/81/55/1318602145581.jpg'
+    ]
   },
-
 ]
 
 
@@ -144,6 +187,7 @@ studio_slots.each do  |studio_slot|
   slot = Slot.new(studio_slot[:slot])
   slot.studio = studio
   if studio.save
+    studio.photo_urls = studio_slot[:urls]
     puts "#{studio.name} created"
   else
     puts  "Error #{studio.name} not created"
@@ -154,7 +198,6 @@ studio_slots.each do  |studio_slot|
     puts  "Error #{slot.date} not created"
   end
 end
-
 
 
 users = [
@@ -417,5 +460,6 @@ groups.each_with_index do  |group, index|
   end
 
 end
+
 
 

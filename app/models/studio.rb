@@ -5,7 +5,7 @@ class Studio < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  has_attachment :photo
+  has_attachments :photos, maximum: 5
 
   has_many :studio_equipments, dependent: :destroy
   has_many :equipments, through: :studio_equipments

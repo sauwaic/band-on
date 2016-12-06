@@ -14,6 +14,8 @@
               <div class="group-summary">
                 <% if @group.photo? %>
                 <%= cl_image_tag @group.photo.path, class: 'polaroid-image' %>
+                <% else %>
+                <%= image_tag 'beatles.jpg', class: 'polaroid-image' %>
                 <% end %>
                 <div class="group-description">
                   <%= "DESCRIPTION: #{@group.description}" %>
@@ -35,11 +37,12 @@
                 </div>
                 <div class="member-list">
                   <div class="member-tag">
-                    <%= image_tag @group.admin.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
-                    <p> <%= "#{@group.admin.name || @group.admin.first_name}" %> </p>
+                    <%= image_tag @group_admin.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
+                    <p> <%= "#{@group_admin.name || @group_admin.first_name}" %> </p>
+                    <div class='show-admin-tag'> ADMIN </div>
                   </div>
 
-                  <% @group.users.each do |member| %>
+                  <% @group_members.each do |member| %>
                   <div class="member-tag">
                     <%= image_tag member.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
                     <p> <%= "#{member.name || member.first_name}" %> </p>
@@ -75,7 +78,8 @@
 
           <div class="row">
             <div class="col-xs-6">
-              <%= image_tag @group.studio.photo || 'drums.jpg', class: 'studio-photo'%>
+    <%= render 'studios/photo_slides', studio: @group.studio%>
+
             </div>
 
             <div class="col-xs-6">
