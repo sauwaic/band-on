@@ -16,13 +16,12 @@ Rails.application.routes.draw do
  resources :studios, only: [:index, :show, :new, :create] do
   resources :slots, only: [:new, :create]
 end
-
+  get '/users/auth/spotify/callback', to: 'users#spotify'
   get 'appointment/studios', to: 'appointments#studios'
   get 'appointment/studios/:id', to: 'appointments#slots', as: 'appointment_studio'
   get 'filtered_groups', to: 'groups#filtered_index', as: 'filtered_groups'
 
-
-get '/my_groups', to: 'profiles#my_groups'
-get '/my_profile', to: 'profiles#my_profile'
+  get '/my_groups', to: 'profiles#my_groups'
+  get '/my_profile', to: 'profiles#my_profile'
 
 end
