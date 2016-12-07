@@ -35,6 +35,13 @@
   background-attachment: fixed;
   overflow:scroll;
 }
+.bg-gradient {
+  background-image: image-url("gradient-piano.jpg");
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  overflow:scroll;
+}
 .bg-dashboard {
   background-image: image-url("mic-bkg.jpg");
   background-size: cover;
