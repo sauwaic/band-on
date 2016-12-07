@@ -5,7 +5,20 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @groups = policy_scope(Group).order(created_at: :desc)
+    if params[:query]
+      @studios = policy_scope(Studio).near(params[:query],20)
+      @groups = []
+      @studios.each do |studio|
+        studio.groups.each do |group|
+          @groups << group
+        end
+      end
+      @groups.sort_by(&:name)
+    else
+      @groups = policy_scope(Group)
+    end
+
+
   end
 
   def filtered_index

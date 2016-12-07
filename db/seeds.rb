@@ -203,153 +203,168 @@ end
 users = [
 
 {
-      name:"Tim",
-      email:"Tim.hersby@gmail.com",
-      password: "password",
-      gender: "male",
-      age: 25,
-      description:"Young musician, involved in several rock bands, looking for a cool band to experiment new kind of music",
-      experience: "beginner",
-      genre: "rock",
+     new:
+        { name: "Tim",
+        email: "Tim.hersby@gmail.com",
+        password: "password",
+        gender: "male",
+        age: 25,
+        description: "Young musician, involved in several rock bands, looking for a cool band to experiment new kind of music",
+        experience: "beginner",
+        genre: "rock" },
+      url: 'https://randomuser.me/api/portraits/men/35.jpg'
     },
 
 {
-      name:"Chloe",
-      email:"Chloe.mastoni@gmail.com",
+      new: { name: "Chloe",
+      email: "Chloe.mastoni@gmail.com",
       password: "password",
       gender: "female",
       age: 23,
       description:"6 years playing the bass-guitar, willing to integrate a funk band in the States",
       experience: "intermediate",
-      genre: "funk",
+      genre: "funk" },
+      url: 'https://randomuser.me/api/portraits/women/90.jpg'
     },
 
 {
-      name:"Pedro",
-      email:"pedrolinto@gmail.com",
+      new: { name: "Pedro",
+      email: "pedrolinto@gmail.com",
       password: "password",
       gender: "male",
       age: 33,
       description:"Drummer in different band for more than 10 years, I love rock'n'roll music from the 80's and the 70's",
       experience: "advanced",
-      genre: "rock",
+      genre: "rock" },
+      url: 'https://randomuser.me/api/portraits/men/85.jpg'
     },
 
 {
-      name:"Paul",
-      email:"pauldisco@gmail.com",
+      new: { name: "Paul",
+      email: "pauldisco@gmail.com",
       password: "password",
       gender: "male",
       age: 24,
       description:"Guitarist on both electric and acustic guitar, been playing with friends for several years, now looking for a cool band to produce some good music",
       experience: "advanced",
-      genre: "rock",
+      genre: "rock" },
+      url: 'https://randomuser.me/api/portraits/men/9.jpg'
     },
 
 {
-      name:"Alexia",
-      email:"alexia@yahoo.com",
+      new: { name: "Alexia",
+      email: "alexia@yahoo.com",
       password: "password",
       gender: "female",
       age: 29,
       description:"I play with a Microkorg, synthetizer, voicoder, willing to create some cool atmosphere for the future band i will play with",
       experience: "intermediate",
-      genre: "indie",
+      genre: "indie" },
+      url: 'https://randomuser.me/api/portraits/women/26.jpg'
     },
 
 {
-      name:"Taylor",
-      email:"taylorsing@free.com",
+      new: { name: "Taylor",
+      email: "taylorsing@free.com",
       password: "password",
       gender: "female",
       age: 19,
       description:"I love to sing under the shower, and listen to great singers like Melodie Gardot, Adele and Whitney Houston, I want to use my voice in a band",
       experience: "intermediate",
-      genre: "jazz",
+      genre: "jazz" },
+      url: 'https://randomuser.me/api/portraits/women/13.jpg'
     },
 
 {
-      name:"William",
-      email:"william.grim@gmail.com",
+      new: { name: "William",
+      email: "william.grim@gmail.com",
       password: "password",
       gender: "male",
       age: 36,
       description:"Have been playing the trumpet and the saxophone for 5 years now, willing to integrate a jazz/funk band in Copenhagen",
       experience: "intermediate",
-      genre: "jazz",
+      genre: "jazz" },
+      url: 'https://randomuser.me/api/portraits/men/17.jpg'
     },
 
 {
-      name:"Louise",
-      email:"louise_alco@gmail.com",
+      new: { name: "Louise",
+      email: "louise_alco@gmail.com",
       password: "password",
       gender: "female",
       age: 34,
       description:"Talented pianist, willing to integrate a cool band, available to play two times a week.",
       experience: "advanced",
-      genre: "classical",
+      genre: "classical" },
+      url: 'https://randomuser.me/api/portraits/women/67.jpg'
     },
 
 {
-      name:"Oliver",
-      email:"oliver.jdk@gmail.com",
+      new: { name: "Oliver",
+      email: "oliver.jdk@gmail.com",
       password: "password",
       gender: "male",
       age: 27,
       description:"Guitarist in a metal band for 2 years, now looking for a new band, Metal or hard-rock",
       experience: "beginner",
-      genre: "metal",
+      genre: "metal" },
+      url: 'https://randomuser.me/api/portraits/men/19.jpg'
     },
 
 {
-      name:"Jamie",
-      email:"jamierock.on@gmail.com",
+      new: { name: "Jamie",
+      email: "jamierock.on@gmail.com",
       password: "password",
       gender: "male",
       age: 24,
       description:"Guitarist in a rock band for 1 years, really into new indie rock band like Tame Impala or Moby",
       experience: "beginner",
-      genre: "rock",
+      genre: "rock" },
+      url: 'https://randomuser.me/api/portraits/men/11.jpg'
     },
 
 {
-      name:"Emma",
-      email:"emma.daji@gmail.com",
+      new: { name: "Emma",
+      email: "emma.daji@gmail.com",
       password: "password",
       gender: "female",
       age: 31,
       description:"Violin player. 6 years of conservatory in Vienna, looking for a classical group to play some relaxing classical music",
       experience: "advanced",
-      genre: "classic",
+      genre: "classic" },
+      url: 'https://randomuser.me/api/portraits/women/33.jpg'
     },
 
 {
-      name:"Arthur",
-      email:"arthur.piot@gmail.com",
+      new: { name: "Arthur",
+      email: "arthur.piot@gmail.com",
       password: "password",
       gender: "male",
       age: 23,
       description:"Playing the drum for ten years now, recently quit my old band because of discord on the music we wanted to play, now looking for an easy going band to play some cool stuff",
       experience: "intermediate",
-      genre: "other",
+      genre: "other" },
+      url: 'https://randomuser.me/api/portraits/men/20.jpg'
     },
 
 {
-      name:"Eduardo",
-      email:"eduardo.lamercantia@gmail.com",
+      new: { name: "Eduardo",
+      email: "eduardo.lamercantia@gmail.com",
       password: "password",
       gender: "male",
       age: 21,
       description:"Bass-guitar and guitar player, already played in 3 different bands, looking to have fun with other musicians",
       experience: "advanced",
-      genre: "reggae",
-    },
+      genre: "reggae" },
+      url: 'https://randomuser.me/api/portraits/men/22.jpg'
+    }
 ]
 
 
-users.each do  |user|
-  user = User.new(user)
+users.each do  |member|
+  user = User.new(member[:new])
   if user.save
+    user.photo_url = member[:url]
     puts "#{user.name} created"
   else
     puts  "Error #{user.name} not created"
