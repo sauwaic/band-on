@@ -5,70 +5,57 @@
     <h2>Find your next Jam Session  </h2>
 
     <div class="section group">
+            <%= form_tag(groups_path, method: :get) do %>
+
      <div class="col span_1_of_5">
        <div class="form-group">
         <label for="sel1">City:</label>
         <select class="form-control" id="sel1">
-          <option>Copenhagen  </option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
+          <option>All</option>
+          <option>Copenhagen</option>
+          <option>Paris</option>
+          <option>Hong Kong</option>
         </select>
       </div>
     </div>
     <div class="col span_2_of_5">
       <label for="sel1">From:</label>
       <div class="form-group">
-        <div class='input-group date' id='datetimepicker7'>
-          <input type='text' class="form-control" />
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
+        <div class="input-group date">
+          <input type="text" class="form-control">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+          </div>
         </div>
       </div>
+
+
     </div>
     <div class="col span_3_of_5">
       <label for="sel1">To:</label>
-      <div class="form-group">
-        <div class='input-group date' id='datetimepicker7'>
-          <input type='text' class="form-control" />
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
-        </div>
-      </div>
+        <div class="input-group date">
+  <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+</div>
     </div>
     <div class="col span_4_of_5">
      <div class="form-group">
        <label for="sel1">Genre:</label>
        <select class="form-control" id="sel1">
+        <option>All</option>
         <option>Rock</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <option>Jazz</option>
+        <option>Indie</option>
       </select>
     </div>
   </div>
   <div class="col span_5_of_5">
-   <button type="button" class="btn btn-primary btn-lg-round">Search</button>
+   <button type="submit" class="btn btn-primary btn-lg-round">Search</button>
+   <% end %>
  </div>
 </div>
 
 <div>
-  <script type="text/javascript">
-    $(function () {
-      $('#datetimepicker6').datetimepicker();
-      $('#datetimepicker7').datetimepicker({
-            useCurrent: false //Important! See issue #1075
-          });
-      $("#datetimepicker6").on("dp.change", function (e) {
-        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-      });
-      $("#datetimepicker7").on("dp.change", function (e) {
-        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-      });
-    });
-  </script>
+
 </div>
 </div>
 </div>
@@ -103,7 +90,7 @@
           <h3>Music lovers</h3>
           <h4>Join the french locals!</h4>
         </div>
-    <%= link_to "", groups_path(query: 'paris'), class: 'card-link' %>
+        <%= link_to "", groups_path(query: 'paris'), class: 'card-link' %>
 
       </div>
     </div>
@@ -123,7 +110,7 @@
           <h3>Hong Kong</h3>
           <h4>Fix of East-West fusion</h4>
         </div>
-            <%= link_to "", groups_path(query: 'hong kong'), class: 'card-link' %>
+        <%= link_to "", groups_path(query: 'hong kong'), class: 'card-link' %>
 
       </div>
 
@@ -134,7 +121,7 @@
           <h3>New Nordic</h3>
           <h4>Join the nordic scene!</h4>
         </div>
-       <%= link_to "", groups_path(query: 'copenhagen'), class: 'card-link' %>
+        <%= link_to "", groups_path(query: 'copenhagen'), class: 'card-link' %>
       </div>
 
     </div>
