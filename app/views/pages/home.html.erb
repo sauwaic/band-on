@@ -5,16 +5,16 @@
     <h2>Find your next Jam Session  </h2>
 
     <div class="section group">
-    <%= form_tag(groups_path, method: :get) do %>
+    <%= form_tag(filtered_groups_path, method: :get) do %>
 
      <div class="col span_1_of_5">
        <div class="form-group">
-        <label for="sel1">City:</label>
-        <select class="form-control" id="sel1">
-          <option>All</option>
-          <option>Copenhagen</option>
-          <option>Paris</option>
-          <option>Hong Kong</option>
+        <label for="city">City:</label>
+        <select class="form-control" id="city" name="city">
+          <option value="">All</option>
+          <option value="Copenhagen">Copenhagen</option>
+          <option value="Paris">Paris</option>
+          <option value="Hong Kong">Hong Kong</option>
         </select>
       </div>
     </div>
@@ -23,7 +23,7 @@
       <label for="sel1">From:</label>
       <div class="form-group">
         <div class="input-group date">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" name="start-date">
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>
           </div>
@@ -34,15 +34,15 @@
     <div class="col span_3_of_5">
       <label for="sel1">To:</label>
         <div class="input-group date">
-          <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+          <input type="text" class="form-control" name="end-date"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
         </div>
     </div>
 
     <div class="col span_4_of_5">
      <div class="form-group">
        <label for="sel1">Genre:</label>
-       <select class="form-control" id="sel1">
-        <option>All</option>
+       <select class="form-control" id="sel1" name="genre">
+        <option value="">All</option>
         <option>Rock</option>
         <option>Jazz</option>
         <option>Indie</option>
@@ -51,7 +51,7 @@
   </div>
 
   <div class="col span_5_of_5">
-   <button type="submit" class="btn btn-primary btn-lg-round">Search</button>
+   <input type="submit" class="btn btn-primary btn-lg-round">Search</input>
    <% end %>
  </div>
 

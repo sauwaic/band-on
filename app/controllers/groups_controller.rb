@@ -25,11 +25,11 @@ class GroupsController < ApplicationController
     if params["city"].empty? && params["genre"].empty?
       @groups = Group.all
     elsif params["city"].empty? && params["genre"].present?
-      @groups = Group.where('genre' => params["genre"])
+      @groups = Group.where('genre' => params["genre"].downcase)
     elsif params["city"].present? && params["genre"].empty?
       @groups = Group.joins(slot: :studio).where('studios.address LIKE ?', "%#{params["city"]}%")
     else
-      @groups = Group.joins(slot: :studio).where('studios.address LIKE ?', "%#{params["city"]}%").where('genre' => params[:genre])
+      @groups = Group.joins(slot: :studio).where('studios.address LIKE ?', "%#{params["city"]}%").where('genre' => params[:genre].downcase)
     end
     authorize @groups
     render 'index'
