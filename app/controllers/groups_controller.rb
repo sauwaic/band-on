@@ -22,10 +22,17 @@ class GroupsController < ApplicationController
   end
 
   def filtered_index
-    @groups = Group.joins(slot: :studio).where('studios.address' => params[:address]).where('genre' => params[:genre]) if params[:genre].present?
+    if params["city"].empty? && params["genre"].empty?
+      @groups = Group.all
+    elsif params["city"].empty? && params["genre"].present?
+      @groups = Group.where('genre' => params["genre"])
+    elsif params["city"].present? && params["genre"].empty?
+      @groups = Group.joins(slot: :studio).where('studios.address LIKE ?', "%#{params["city"]}%")
+    else
+      @groups = Group.joins(slot: :studio).where('studios.address LIKE ?', "%#{params["city"]}%").where('genre' => params[:genre])
+    end
     authorize @groups
     render 'index'
-
   end
 
   def show

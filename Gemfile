@@ -11,6 +11,7 @@ gem 'redis'
 gem 'faker'
 gem 'geocoder'
 gem 'omniauth-facebook'
+gem 'omniauth-spotify'
 gem 'rspotify'
 
 gem "cloudinary", "1.1.0"
