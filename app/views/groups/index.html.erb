@@ -20,10 +20,10 @@
         </div>
         <br>
         <%= form_tag(filtered_groups_path, method: :get) do %>
-        <%= label_tag(:genre, "genre") %>
-        <%= select_tag("genre", options_for_select(%w(rock jazz punk acoustic indie hip-hop classical funk reggae blues metal other)), include_blank: true) %>
+        <%= label_tag(:genre, "Genre") %>
+        <%= select_tag("genre", options_for_select(%w(All Rock Jazz Punk Acoustic Indie Hip-hop Classical Funk Reggae Blues Metal Other))) %>
         <%= label_tag(:address, "Where") %>
-        <%= select_tag("city", options_for_select(%w(Copenhagen Paris Hong\ Kong)), include_blank: true) %>
+        <%= select_tag("city", options_for_select(%w(All Copenhagen Paris Hong\ Kong))) %>
         <%= submit_tag 'Search' %>
         <% end %>
 
