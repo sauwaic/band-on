@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
 
-  before_action :set_group, only: [ :display ]
+  before_action :set_group, only: [ :display, :new_playlist, :add_playlist ]
 
   def display
     @message = Message.new
@@ -11,6 +11,21 @@ class DashboardsController < ApplicationController
       marker.lat studio.latitude
       marker.lng studio.longitude
     end
+  end
+
+  def new_playlist
+    spotify_user = RSpotify::User.find(current_user.spotify_id)
+    @playlists = spotify_user.playlists
+    authorize @group
+  end
+
+  def add_playlist
+    @group.playlist_name = params[:playlist_name]
+    @group.playlist_path = params[:playlist_path]
+    @group.save
+    authorize @group
+    redirect_to group_dashboard_path(@group)
+    # Get the playlist chosen from the params and update group with playlist_name and playlist_path
   end
 
     private

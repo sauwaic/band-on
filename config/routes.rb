@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :groups do
     get 'dashboard', to: 'dashboards#display'
+    get 'playlist', to: 'dashboards#new_playlist'
+    post 'playlist', to: 'dashboards#add_playlist'
     resources :group_users, only: [:create]
     resources :messages, only: [:create]
   end

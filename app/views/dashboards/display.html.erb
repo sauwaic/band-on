@@ -131,12 +131,23 @@
     <div class="col-xs-12">
       <div class="dashboard-box">
        <div class="box-title">
-        Jam playlist
+        Jam playlist  <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
         <hr>
       </div>
-        <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
-      <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A7b9XqnXw5J47tmn0Y0IZeW" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+     <% if @group.playlist_name %>
+      <iframe src="https://embed.spotify.com/?uri=<%= @group.playlist_path %>" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+      <% elsif @group.admin == current_user && current_user.spotify_id %>
+      <% link_to "Create a playlist", group_playlist_path(@group)%>
+      <% elsif @group.admin == current_user %>
+      <% link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path %>
+      <% else %>
+      <%= Ask the group admin to add a spotify playlist %>
+      <%end%>
+
     </div>
+    <%= link_to "Create a playlist", group_playlist_path(@group) %>
   </div>
 </div>
 </div>
