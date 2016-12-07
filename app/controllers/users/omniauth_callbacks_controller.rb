@@ -10,4 +10,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+
+  def spotify
+    response = request.env['omniauth.auth']
+    current_user.spotify_id = response['uid']
+    current_user.save
+  end
 end
