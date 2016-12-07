@@ -1,0 +1,9 @@
+      <div class="photos-slide">
+      <% if studio.photos? %>
+       <% studio.photos.each do |photo| %>
+       <%= cl_image_tag photo.path, class: 'slide-photo' %>
+       <% end %>
+       <% end %>
+       <a class="photo-slide-btn slide-left-btn" onclick="plusDivs(-1)">&#10094;</a>
+       <a class="photo-slide-btn slide-right-btn" onclick="plusDivs(+1)">&#10095;</a>
+     </div>

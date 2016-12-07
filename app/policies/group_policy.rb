@@ -29,4 +29,8 @@ class GroupPolicy < ApplicationPolicy
     true
   end
 
+  def my_profile?
+    true
+  end
+
 end
