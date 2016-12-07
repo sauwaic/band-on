@@ -1,0 +1,20 @@
+<h1 class="page-header">Choose your playlist </h1>
+
+<div class="container">
+  <div class="row">
+    <% @playlists.each do |playlist|%>
+
+      <div class="form-group col-xs-4">
+        <%= form_tag group_playlist_path(@group) , method: "post" do %>
+            <h3><%= playlist.name %></h3>
+            <%= hidden_field_tag(:playlist_name, playlist.name) %>
+            <%= hidden_field_tag(:playlist_path, playlist.uri) %>
+        <%= submit_tag "Add this PLaylist", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>
+

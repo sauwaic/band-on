@@ -5,6 +5,14 @@ class GroupPolicy < ApplicationPolicy
     end
   end
 
+  def new_playlist?
+    true
+  end
+
+  def add_playlist?
+    true
+  end
+
   def display?
     record.users.include?(user) || user == record.admin
   end
