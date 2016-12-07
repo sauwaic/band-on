@@ -10,8 +10,8 @@
         <label for="sel1">City:</label>
         <select class="form-control" id="sel1">
           <option>Copenhagen  </option>
-          <option>2</option>
-          <option>3</option>
+          <option>Paris</option>
+          <option>Hong Kong</option>
           <option>4</option>
         </select>
       </div>
@@ -84,6 +84,7 @@
           <h3>Latin Tunes</h3>
           <h4>Find your next Jam!</h4>
         </div>
+        <a class="card-link" href="#" ></a>
       </div>
     </div>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
@@ -92,6 +93,8 @@
           <h3>News etc.</h3>
           <h4>Listen to the grapewine!</h4>
         </div>
+        <a class="card-link" href="#" ></a>
+
       </div>
     </div>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
@@ -100,6 +103,8 @@
           <h3>Music lovers</h3>
           <h4>Join the french locals!</h4>
         </div>
+    <%= link_to "", groups_path(query: 'paris'), class: 'card-link' %>
+
       </div>
     </div>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
@@ -108,15 +113,20 @@
           <h3>Jam with others</h3>
           <h4>Find out how it works</h4>
         </div>
+        <a class="card-link" href="#" ></a>
+
       </div>
     </div>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
       <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'ny.jpg' %>);">
-        <div class="card-description">The Big Apple!
-          <h3>New York</h3>
-          <h4>Home of Jazz - go jam!</h4>
+        <div class="card-description">Pearl of Orient
+          <h3>Hong Kong</h3>
+          <h4>Fix of East-West fusion</h4>
         </div>
+            <%= link_to "", groups_path(query: 'hong kong'), class: 'card-link' %>
+
       </div>
+
     </div>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
       <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'cph.jpg' %>);">
@@ -124,7 +134,9 @@
           <h3>New Nordic</h3>
           <h4>Join the nordic scene!</h4>
         </div>
+       <%= link_to "", groups_path(query: 'copenhagen'), class: 'card-link' %>
       </div>
+
     </div>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
       <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'beats1.jpg' %>);">
@@ -132,6 +144,8 @@
           <h3>Recording artist?</h3>
           <h4>Get more information</h4>
         </div>
+        <a class="card-link" href="#" ></a>
+
       </div>
     </div>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
@@ -140,6 +154,8 @@
           <h3>Music Capitol</h3>
           <h4>Get your Jam on in LA</h4>
         </div>
+        <a class="card-link" href="#" ></a>
+
       </div>
     </div>
   </div>

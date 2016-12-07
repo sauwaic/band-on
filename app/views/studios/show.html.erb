@@ -3,50 +3,53 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-     <% if @studio.photo? %>
-     <%= cl_image_tag @studio.photo.path, class: 'studio-photo' %>
-     <% end %>
+
+    <%= render 'photo_slides', studio: @studio%>
+
      <div class='group-title'> <%= @studio.name %> </div>
+
      <div class='studio-description'> PRICE $<%= @studio.price %>/hour </div>
-      <br>
-      <br>
-      <div class='section-title'>
+     <br>
+     <br>
+
+     <div class='section-title'>
       <p>Available slots</p>
       <hr>
-      </div>
-      <% if @available_slots.blank? %>
-      <p>There are no spots available</p>
-      <% else %>
-      <% @available_slots.each do |slot| %>
-      <p> <%= "#{slot.date.strftime("%A, %d %B %Y")}: #{slot.start_time.strftime("%l:%M %p")} - #{slot.end_time.strftime("%l:%M %p")}" %> </p>
-      <% end %>
-      <% end %>
-      <%= link_to "Add availabilities", new_studio_slot_path(@studio), class: "btn btn-primary" %>
-   </div>
+    </div>
 
-   <div class = "col-xs-6">
+    <% if @available_slots.blank? %>
+    <p>There are no spots available</p>
+    <% else %>
+    <% @available_slots.each do |slot| %>
+    <p> <%= "#{slot.date.strftime("%A, %d %B %Y")}: #{slot.start_time.strftime("%l:%M %p")} - #{slot.end_time.strftime("%l:%M %p")}" %> </p>
+    <% end %>
+    <% end %>
+    <%= link_to "Add availabilities", new_studio_slot_path(@studio), class: "btn btn-primary" %>
+  </div>
+
+  <div class = "col-xs-6">
    <div class="address">
     <strong> Address </strong>
     <p> <%= @studio.address %> </p>
-   </div>
+  </div>
 
-   <div id="map" style="width: 100%; height: 500px; position: static; margin-top: 30px;"></div>
+  <div id="map" style="width: 100%; height: 500px; position: static; margin-top: 30px;"></div>
 
-   <% content_for(:after_js) do %>
-   <%= javascript_tag do %>
-   $(document).ready(function() {
-   var handler = Gmaps.build('Google');
-   var styles = <%= render 'mapstyle'%>;
-   handler.buildMap({
-   provider: {
-   styles: styles
- },
- internal: { id: 'map' } }, function() {
- markers = handler.addMarkers(<%= raw @hash.to_json %>);
- handler.bounds.extendWith(markers);
- handler.fitMapToBounds();
- if (markers.length == 0) {
- handler.getMap().setZoom(2);
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+  $(document).ready(function() {
+  var handler = Gmaps.build('Google');
+  var styles = <%= render 'mapstyle'%>;
+  handler.buildMap({
+  provider: {
+  styles: styles
+},
+internal: { id: 'map' } }, function() {
+markers = handler.addMarkers(<%= raw @hash.to_json %>);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+if (markers.length == 0) {
+handler.getMap().setZoom(2);
 } else if (markers.length == 1) {
 handler.getMap().setZoom(14);
 }

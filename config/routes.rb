@@ -24,4 +24,6 @@ end
   get '/my_groups', to: 'profiles#my_groups'
   get '/my_profile', to: 'profiles#my_profile'
 
+get '/auth/spotify/callback', to: 'users#spotify'
+
 end

@@ -1,4 +1,101 @@
+<div class="bg-user-show">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="user-bkg-box">
+          <div class="user-title text-center">
+            <%= @user.name %>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="user-summary">
+                <% if @user.facebook_picture_url? %>
+                <%= cl_image_tag @user.facebook_picture_url, class: 'polaroid-image' %>
+                <% end %>
+                <div class="user-description">
+                  <h1> <%= "NAME: #{@user.first_name} #{@user.last_name}" %></h1>
+                  <h2><%= "CONTACT: #{@user.email}" %></h2>
+                  <h2><%= "GENDER: #{@user.gender}" %></h2>
+                  <h2><%= "AGE: #{@user.age}" %></h2>
+                  <h2><%= "GENRES: #{@user.genre}" %></h2>
+                  <h2><%= "EXPERIENCE: #{@user.experience}" %></h2>
+                  <h2><%= "DESCRIPTION: #{@user.description}"%></h2>
+                  <br>
+                  <input type="submit" name="commit" value="Ask to Join" class="btn btn-primary btn-submit" data-disable-with="Join group">
+                </div>
+              </div>
 
+              <hr class="style-one-one">
 
-
+              <div class="col-xs-12">
+                <div class=index-jam>
+                  My life in pictures:
+                </div>
+                <div class='col-xs-12'>
+                  <div class="carousel slide media-carousel" id="media">
+                    <div class="carousel-inner">
+                      <div class="item  active">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                          <div class="col-md-4">
+                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+                    <a data-slide="next" href="#media" class="right carousel-control">›</a>
+                  </div>
+                  <hr class="style-one-one">
+                </div>
+              </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="user-jam">
+            </div>
+            <div class="index-jam">
+              Upcoming Jams:
+            </div>
+            <% @groups.each do |group| %>
+            <%= render 'groups/group_card', group: group %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 
