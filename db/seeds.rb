@@ -22,7 +22,7 @@ studio_slots = [
   {
     studio: {
       name:"Vibe Factory Recording Studio",
-      address:"Rentemestervej 52",
+      address:"Rentemestervej 52, Copenhagen",
       price: 500,
     },
     slot: {
@@ -35,7 +35,7 @@ studio_slots = [
   {
     studio: {
       name:"Black Tornado studio",
-      address:"Refshalevej 209",
+      address:"Refshalevej 209, Copenhagen",
       price: 700
     },
     slot: {
@@ -48,7 +48,7 @@ studio_slots = [
   {
     studio: {
       name:"Delta Lab Aps",
-      address:"Titangade 1",
+      address:"Titangade 1, Copenhagen",
       price: 400
     },
     slot: {
