@@ -14,6 +14,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def spotify
     response = request.env['omniauth.auth']
     current_user.spotify_id = response['uid']
-    current_user.save
+    if current_user.save
+      flash[:success] = "Your Spotify Account has been linked."
+      redirect_to root_path
+    else
+      flash[:alert] = "There was a problem linking your Spotify account."
+      redirect_to to_path
+    end
   end
 end
