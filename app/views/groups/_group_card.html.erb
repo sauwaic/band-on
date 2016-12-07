@@ -17,12 +17,12 @@
     <% group_members = group.users.reject {|user| user == group.admin} %>
 
     <div class="group-card-member-avatar">
-    <%= image_tag group_admin.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-index" %>
+    <%= generate_profile_picture(group_admin,  ["avatar-index"]) %>
     </div>
 
-    <% group.users.each do |member| %>
+    <% group_members.each do |member| %>
     <div class="group-card-member-avatar">
-      <%= image_tag member.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-index" %>
+      <%= generate_profile_picture(member,  ["avatar-index"]) %>
     </div>
     <% end %>
   </div>

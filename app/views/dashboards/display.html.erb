@@ -36,7 +36,7 @@
           </div>
 
           <div class="member-card">
-            <%= image_tag @group_admin.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
+            <%= generate_profile_picture(@group_admin,  ["avatar-large"]) %>
             <div class="member-card-content">
               <div id="admin-tag"> admin </div>
               <h4> <%= "#{@group_admin.name || @group_admin.first_name}" %> </h4>
@@ -46,7 +46,7 @@
 
           <% @group_members.each do |member| %>
           <div class="member-card">
-            <%= image_tag member.facebook_picture_url || 'http://lorempixel.com/70/70/people', class: "avatar-large" %>
+            <%= generate_profile_picture(member, ["avatar-large"]) %>
             <div class="member-card-content">
               <h4> <%= "#{member.name || member.first_name}" %> </h4>
               <p> On the <%= GroupUser.where(user: member).where(group: @group)[0].instrument.name %></p>
