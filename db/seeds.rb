@@ -451,7 +451,10 @@ slots = Slot.all
 
 groups.each_with_index do  |group, index|
   group = Group.new(group)
-  group.slot = slots[index]
+  slot = slots[index]
+  group.slot = slot
+  slot.taken = true
+  slot.save
   if group.save
     puts "#{group.name} created"
   else
