@@ -16,7 +16,6 @@ class DashboardsController < ApplicationController
   def new_playlist
     spotify_user = RSpotify::User.find(current_user.spotify_id)
     @playlists = spotify_user.playlists
-    raise
     authorize @group
   end
 
