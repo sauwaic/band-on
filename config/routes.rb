@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :groups
   root to: 'pages#home'
   mount Attachinary::Engine => "/attachinary"
-  get "profiles/:id", to: 'profiles#show'
+  get "profiles/:id", to: 'profiles#show', as: 'profile'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :groups do
@@ -26,5 +26,8 @@ end
   get '/my_groups', to: 'profiles#my_groups'
   get '/my_profile', to: 'profiles#my_profile'
 
+  get '/concept', to: 'pages#concept', as: 'concept'
+  get '/features', to: 'pages#features', as: 'features'
+  get '/pricing', to: 'pages#pricing', as: 'pricing'
 
 end

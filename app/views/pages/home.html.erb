@@ -51,7 +51,7 @@
   </div>
 
   <div class="col span_5_of_5">
-   <input type="submit" class="btn btn-primary btn-lg-round">Search</input>
+   <input type="submit" class="btn btn-primary btn-lg-round" value="Search"></input>
    <% end %>
  </div>
 
@@ -94,7 +94,7 @@
           <h3>Music lovers</h3>
           <h4>Join the french locals!</h4>
         </div>
-        <%= link_to "", groups_path(query: 'paris'), class: 'card-link' %>
+        <%= link_to "", groups_path(city: 'paris'), class: 'card-link' %>
 
       </div>
     </div>
@@ -109,12 +109,12 @@
       </div>
     </div>
     <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'ny.jpg' %>);">
+      <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(100,100,100,0.6) 50%), url(<%= asset_path 'hong-kong.jpeg' %>); background-position: center;">
         <div class="card-description">Pearl of Orient
           <h3>Hong Kong</h3>
           <h4>Fix of East-West fusion</h4>
         </div>
-        <%= link_to "", groups_path(query: 'hong kong'), class: 'card-link' %>
+        <%= link_to "", groups_path(city: 'hong kong'), class: 'card-link' %>
 
       </div>
 
@@ -125,7 +125,7 @@
           <h3>New Nordic</h3>
           <h4>Join the nordic scene!</h4>
         </div>
-        <%= link_to "", groups_path(query: 'copenhagen'), class: 'card-link' %>
+        <%= link_to "", groups_path(city: 'copenhagen'), class: 'card-link' %>
       </div>
 
     </div>
