@@ -48,7 +48,9 @@
   font-family: 'Exo 2', sans-serif;
   font-size: 12px;
   letter-spacing: 2px;
-  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .group-card-studio-image{
   position: absolute;
@@ -84,7 +86,7 @@
   text-overflow: ellipsis;
 }
 
-.group-card-members {
+.group-card-members-b {
   position: absolute;
   left: 150px;
   bottom: 15px;
