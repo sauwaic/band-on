@@ -26,8 +26,8 @@ end
   get '/my_groups', to: 'profiles#my_groups'
   get '/my_profile', to: 'profiles#my_profile'
 
-  get '/content', to: 'pages#content'
-  get '/features', to: 'pages#features'
-  get '/pricing', to: 'pages#pricing'
+  get '/concept', to: 'pages#concept', as: 'concept'
+  get '/features', to: 'pages#features', as: 'features'
+  get '/pricing', to: 'pages#pricing', as: 'pricing'
 
 end

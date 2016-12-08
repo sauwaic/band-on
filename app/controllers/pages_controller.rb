@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
   end
 
-  def content
+  def concept
   end
 
   def features
