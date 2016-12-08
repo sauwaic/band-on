@@ -9,11 +9,9 @@
           <div class="row">
             <div class="col-xs-12">
               <div class="user-summary">
-                <% if @user.facebook_picture_url? %>
-                <%= cl_image_tag @user.facebook_picture_url, class: 'polaroid-image' %>
-                <% end %>
+                <%= generate_profile_picture(@user,  ["profile-polaroid-image"])%>
                 <div class="user-description">
-                  <h1> <%= "NAME: #{@user.first_name} #{@user.last_name}" %></h1>
+                  <h2> <%= "NAME: #{@user.name}" %></h2>
                   <h2><%= "CONTACT: #{@user.email}" %></h2>
                   <h2><%= "GENDER: #{@user.gender}" %></h2>
                   <h2><%= "AGE: #{@user.age}" %></h2>

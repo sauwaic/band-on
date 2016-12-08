@@ -5,8 +5,8 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    if params[:query]
-      @studios = policy_scope(Studio).near(params[:query],20)
+    if params[:city]
+      @studios = policy_scope(Studio).near(params[:city],20)
       @groups = []
       @studios.each do |studio|
         studio.groups.each do |group|
