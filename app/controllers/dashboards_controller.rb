@@ -16,6 +16,7 @@ class DashboardsController < ApplicationController
   def new_playlist
     spotify_user = RSpotify::User.find(current_user.spotify_id)
     @playlists = spotify_user.playlists
+    raise
     authorize @group
   end
 
@@ -25,7 +26,6 @@ class DashboardsController < ApplicationController
     @group.save
     authorize @group
     redirect_to group_dashboard_path(@group)
-    # Get the playlist chosen from the params and update group with playlist_name and playlist_path
   end
 
     private
