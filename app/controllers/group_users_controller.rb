@@ -7,6 +7,7 @@ class GroupUsersController < ApplicationController
     group_user.group = @group
     group_user.user = current_user
     if group_user.save
+      flash[:notice] = 'Successfully joined group!'
       redirect_to group_dashboard_path(@group)
     elsif @group.users.include?(current_user)
       flash[:alert] = "You are already in the group"
