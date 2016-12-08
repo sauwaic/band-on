@@ -35,64 +35,51 @@
                       <div class="item  active">
                         <div class="row">
                           <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                            <%= image_tag 'myjam1.jpg', class: "thumbnail"%>
                           </div>
                           <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                          </div>
-                          <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="row">
-                          <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                          </div>
-                          <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                          </div>
-                          <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="row">
-                          <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                          </div>
-                          <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                          </div>
-                          <div class="col-md-4">
-                            <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-                          </div>
+                           <%= image_tag 'myjam2.jpg', class: "thumbnail"%>
+                         </div>
+                         <div class="col-md-4">
+                          <%= image_tag 'myjam3.jpg', class: "thumbnail"%>
                         </div>
                       </div>
                     </div>
-                    <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
-                    <a data-slide="next" href="#media" class="right carousel-control">›</a>
-                  </div>
-                  <hr class="style-one-one">
-                </div>
-              </div>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col-md-4">
+                         <%= image_tag 'myjam4.jpg', class: "thumbnail"%>
+                       </div>
+                       <div class="col-md-4">
+                         <%= image_tag 'myjam5.jpg', class: "thumbnail"%>
+                       </div>
+                       <div class="col-md-4">
+                         <%= image_tag 'myjam6.jpg', class: "thumbnail"%>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+                 <a data-slide="next" href="#media" class="right carousel-control">›</a>
+               </div>
+               <hr class="style-one-one">
+             </div>
+           </div>
+         </div>
+         <div class="col-xs-12">
+          <div class="user-jam">
           </div>
-          <div class="col-xs-12">
-            <div class="user-jam">
-            </div>
-            <div class="index-jam">
-              Upcoming Jams:
-            </div>
-            <% @groups.each do |group| %>
-            <%= render 'groups/group_card', group: group %>
-            <% end %>
+          <div class="index-jam">
+            Upcoming Jams:
           </div>
+          <% @groups.each do |group| %>
+          <%= render 'groups/group_card', group: group %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </div>
