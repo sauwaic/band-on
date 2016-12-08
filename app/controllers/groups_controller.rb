@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :filtered_index, :show ]
 
   before_action :set_group, only: [ :show, :edit, :update, :destroy ]
 
